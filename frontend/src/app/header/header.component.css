@@ -1,0 +1,60 @@
+.logo img {
+  width: 8rem;
+  height: 5rem;
+}
+.logo {
+  display: flex;
+  justify-content: center;
+}
+a {
+  text-decoration: none;
+}
+.menu {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Didact Gothic", sans-serif;
+  padding: 0 20rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: rgb(38, 38, 38);
+  letter-spacing: 0.15em;
+  cursor: pointer;
+}
+body,
+html {
+  margin: 0;
+  font: bold 14px/1.4 "Open Sans", arial, sans-serif;
+  background: #000;
+}
+
+a {
+  color: #000;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.15em;
+
+  display: inline-block;
+  padding: 15px 20px;
+  position: relative;
+}
+a:after {
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: #ff0000;
+  transition: width 0.5s ease 0s, left 0.5s ease 0s;
+  width: 0;
+}
+a:hover:after {
+  width: 100%;
+  left: 0;
+}
+@media screen and (max-height: 300px) {
+  ul {
+    margin-top: 40px;
+  }
+}
