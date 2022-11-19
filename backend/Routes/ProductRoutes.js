@@ -1,5 +1,6 @@
 import express from "express";
 import asyncHandler from "express-async-handler";
+import protect from "../Middleware/Auth.js";
 import Product from "../Models/ProductModel.js";
 const productRoute = express.Router();
 productRoute.get(
@@ -15,6 +16,44 @@ productRoute.get(
     const product = await Product.find({ id: req.params.id });
     if (product) {
       res.json(product);
+    } else {
+      res.status(404);
+      throw new Error("Product Not Found !");
+    }
+  })
+);
+productRoute.get(
+  "/comments/:id",
+  asyncHandler(async (req, res) => {
+    const product = await Product.find({ id: req.params.id });
+    if (product) {
+      res.json(product[0].comments);
+    } else {
+      res.status(404);
+      throw new Error("Product Not Found !");
+    }
+  })
+);
+productRoute.put(
+  "/comments/add/:id",
+  protect,
+  asyncHandler(async (req, res) => {
+    const product = await Product.find({ id: req.params.id });
+    if (product) {
+      const alreadyCommented = product[0].comments.find(
+        (user) => user.userName == req.body.userName
+      );
+      if (alreadyCommented) {
+        res.status(404).json({ msg: "already commented !" });
+      } else {
+        const upcomments = product[0].comments;
+        upcomments.push(req.body);
+        const adding = await Product.findOneAndUpdate(
+          { id: req.params.id },
+          { comments: upcomments }
+        );
+        res.status(201).json({ msg: "comment added !", adding });
+      }
     } else {
       res.status(404);
       throw new Error("Product Not Found !");
@@ -68,6 +107,16 @@ productRoute.delete("/delete/id=:id", function (req, res) {
     }
   });
 });
+productRoute.delete("/delete/categId=:id", function (req, res) {
+  Product.findOneAndDelete({ categId: req.params.id }, function (err, docs) {
+    if (docs == null) {
+      res.send("Product doesnt exist !");
+    } else {
+      res.send(docs);
+    }
+  });
+});
+
 productRoute.post("/add", async (req, res) => {
   const prod = new Product({
     name: req.body.name,
@@ -108,4 +157,5 @@ productRoute.put(
     }
   })
 );
+
 export default productRoute;

@@ -5,6 +5,30 @@
 .logo {
   display: flex;
   justify-content: center;
+  padding: 1rem 2rem;
+}
+.searchbar {
+  width: 30rem;
+  border-radius: 5rem;
+  padding: 0.5rem 1rem;
+}
+
+.seaicom {
+  font-size: 1.5rem;
+  margin-left: 0.3rem;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.top_row {
+  display: flex;
+  justify-content: space-between;
+}
+.bar {
+  padding: 3rem 2rem;
+}
+.login,
+.cart {
+  padding: 2rem 2rem;
 }
 a {
   text-decoration: none;
@@ -20,13 +44,20 @@ a {
   letter-spacing: 0.15em;
   cursor: pointer;
 }
+.end {
+  display: flex;
+}
 body,
 html {
   margin: 0;
   font: bold 14px/1.4 "Open Sans", arial, sans-serif;
   background: #000;
 }
-
+.login i,
+.cart i {
+  display: block;
+  text-align: center;
+}
 a {
   color: #000;
   text-transform: uppercase;
@@ -37,7 +68,7 @@ a {
   padding: 15px 20px;
   position: relative;
 }
-a:after {
+.menu a:after {
   background: none repeat scroll 0 0 transparent;
   bottom: 0;
   content: "";
@@ -49,7 +80,7 @@ a:after {
   transition: width 0.5s ease 0s, left 0.5s ease 0s;
   width: 0;
 }
-a:hover:after {
+.menu a:hover:after {
   width: 100%;
   left: 0;
 }

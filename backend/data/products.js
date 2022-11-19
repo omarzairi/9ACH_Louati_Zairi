@@ -2,8 +2,9 @@ import Product from "../Models/ProductModel.js";
 import fetch from "node-fetch";
 
 async function getProds() {
+  let categ = "5668";
   const prods = await fetch(
-    "https://www.asos.com/api/product/search/v2/categories/3606?currency=USD&lang=en-GB&limit=2&offset=80&rowlength=3&store=ROW"
+    `https://www.asos.com/api/product/search/v2/categories/${categ}?currency=USD&lang=en-GB&limit=80&offset=0&rowlength=30&store=ROW`
   );
   const data = await prods.json();
   console.log(data.categoryName);
@@ -12,7 +13,7 @@ async function getProds() {
     const prod = new Product({
       id: elem.id,
       name: elem.name,
-      categId: 6992,
+      categId: categ,
       categorie: data.categoryName,
       price: {
         current: {
@@ -30,13 +31,25 @@ async function getProds() {
       media: [
         { img: elem.imageUrl },
         {
-          img: elem.imageUrl.slice(0, elem.imageUrl.indexOf("-1-") + 1) + "2",
+          img:
+            elem.imageUrl.slice(
+              0,
+              elem.imageUrl.indexOf(elem.id + "-1-") + 10
+            ) + "2",
         },
         {
-          img: elem.imageUrl.slice(0, elem.imageUrl.indexOf("-1-") + 1) + "3",
+          img:
+            elem.imageUrl.slice(
+              0,
+              elem.imageUrl.indexOf(elem.id + "-1-") + 10
+            ) + "3",
         },
         {
-          img: elem.imageUrl.slice(0, elem.imageUrl.indexOf("-1-") + 1) + "4",
+          img:
+            elem.imageUrl.slice(
+              0,
+              elem.imageUrl.indexOf(elem.id + "-1-") + 10
+            ) + "4",
         },
       ],
       brandName: elem.brandName,
