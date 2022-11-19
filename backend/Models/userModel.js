@@ -20,6 +20,10 @@ const userSchema = new mongoose.Schema({
     require: true,
     default: false,
   },
+  joinedAt: {
+    type: Date,
+    require: true,
+  },
 });
 
 const User = mongoose.model("User", userSchema);

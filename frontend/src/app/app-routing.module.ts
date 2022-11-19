@@ -4,7 +4,41 @@ import { AdminComponent } from './layout/admin/admin.component';
 import { FrontComponent } from './layout/front/front.component';
 
 const routes: Routes = [
-  { path: '', component: FrontComponent },
+  {
+    path: '',
+    component: FrontComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('./components/front/homepage/homepage.module').then(
+            (module) => module.HomepageModule
+          ),
+      },
+      {
+        path: 'men',
+
+        loadChildren: () =>
+          import('./components/front/men/men.module').then(
+            (module) => module.MenModule
+          ),
+      },
+      {
+        path: 'women',
+        loadChildren: () =>
+          import('./components/front/women/women.module').then(
+            (module) => module.WomenModule
+          ),
+      },
+      {
+        path: 'login',
+        loadChildren: () =>
+          import('./components/front/loginuser/loginuser.module').then(
+            (module) => module.LoginuserModule
+          ),
+      },
+    ],
+  },
   {
     path: 'admin',
     component: AdminComponent,

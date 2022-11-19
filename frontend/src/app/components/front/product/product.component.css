@@ -1,0 +1,27 @@
+.price {
+  display: flex;
+  vertical-align: middle;
+}
+.price h5 {
+  padding-right: 2px;
+}
+.pricesale h5 {
+  color: #f10c0c;
+}
+.price p {
+  text-decoration: line-through;
+}
+.productbody {
+  height: 4rem;
+}
+.percetnage {
+  position: absolute;
+  top: 5%;
+  color: #f10c0c;
+  background-color: rgba(255, 255, 255, 0.778);
+  padding: 0.2rem 0.4rem;
+  border-top-right-radius: 1rem;
+}
+.product {
+  position: relative;
+}

@@ -1,0 +1,38 @@
+.videos {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+.container1,
+.container2 {
+  width: 100%;
+  position: relative;
+}
+.shopbutton {
+  height: 5.59rem;
+  left: 31.5%;
+  margin: -64px 0 0 -64px;
+  position: absolute;
+  top: 54%;
+  width: 25.5rem;
+  z-index: 1;
+  border-radius: 5rem;
+  font-size: 2rem;
+  background-color: white;
+  border: #ff0000 2px solid;
+  letter-spacing: 0.3rem;
+  transition: background-color 0.5s;
+}
+.shopbutton:hover {
+  background-color: black;
+  color: white;
+}
+video {
+  width: 100%;
+}
+.vid1 {
+  padding-right: 0.5rem;
+}
+.vid2 {
+  padding-left: 0.5rem;
+}

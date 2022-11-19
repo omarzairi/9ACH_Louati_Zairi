@@ -1,11 +1,12 @@
 .logo img {
-  width: 8rem;
-  height: 5rem;
+  width: 7rem;
+  height: 4rem;
 }
 .logo {
   display: flex;
   justify-content: center;
   padding: 1rem 2rem;
+  cursor: pointer;
 }
 .searchbar {
   width: 30rem;
@@ -42,7 +43,6 @@ a {
   font-size: 1.2rem;
   color: rgb(38, 38, 38);
   letter-spacing: 0.15em;
-  cursor: pointer;
 }
 .end {
   display: flex;
@@ -65,9 +65,10 @@ a {
   letter-spacing: 0.15em;
 
   display: inline-block;
-  padding: 15px 20px;
+  padding: 15px 5rem;
   position: relative;
 }
+
 .menu a:after {
   background: none repeat scroll 0 0 transparent;
   bottom: 0;
@@ -88,4 +89,8 @@ a {
   ul {
     margin-top: 40px;
   }
+}
+.active {
+  background-color: rgb(113, 113, 113);
+  color: white;
 }

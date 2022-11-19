@@ -1,0 +1,28 @@
+.navbar {
+  background-color: rgb(113, 113, 113);
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+.active {
+  color: rgb(0, 0, 0);
+}
+nav {
+  position: sticky;
+  z-index: 9;
+  top: 0;
+}
+a {
+  text-decoration: none;
+  color: white;
+  letter-spacing: 0.2rem;
+  padding-left: 4rem;
+}
+.salelink {
+  color: #ff0000;
+  padding-left: 2rem;
+}
+.navitems {
+  display: flex;
+  justify-content: space-between;
+}

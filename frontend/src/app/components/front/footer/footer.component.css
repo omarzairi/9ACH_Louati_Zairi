@@ -1,0 +1,47 @@
+.logo img {
+  height: 5rem;
+  width: 8rem;
+}
+.logo {
+  display: flex;
+  justify-content: center;
+}
+a {
+  text-decoration: none;
+  color: #000;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.15em;
+  display: inline-block;
+  padding: 15px 20px;
+  position: relative;
+}
+.menus {
+  display: flex;
+  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  position: relative;
+}
+.menu {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  font-weight: 600;
+  padding-left: 11rem;
+}
+h6 {
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  padding: 0 2rem;
+
+  opacity: 0.7;
+  font-weight: 100;
+  letter-spacing: 0.1rem;
+}
+i {
+  font-size: larger;
+}

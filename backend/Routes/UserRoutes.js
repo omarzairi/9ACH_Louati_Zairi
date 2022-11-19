@@ -47,6 +47,7 @@ userRoute.post(
         name,
         email,
         password,
+        joinedAt: new Date(),
       });
       if (user) {
         res.status(201).json({
@@ -54,6 +55,7 @@ userRoute.post(
           name: user.name,
           email: user.email,
           isAdmin: user.isAdmin,
+          joinedAt: user.joinedAt,
           token: generateToken(user._id),
         });
       } else {
@@ -90,12 +92,14 @@ userRoute.put(
       user.name = req.body.name || user.name;
       user.email = req.body.email || user.email;
       user.password = req.body.password || user.password;
+      user.joinedAt = req.body.joinedAt || user.joinedAt;
       const updated = await user.save();
       res.json({
         _id: updated._id,
         name: updated.name,
         email: updated.email,
         isAdmin: updated.isAdmin,
+        joinetAt: updated.joinedAt,
         token: generateToken(updated._id),
       });
     } else {

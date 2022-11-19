@@ -1,0 +1,22 @@
+<div class="product">
+  <div class="top">
+    <img class="image" [src]="img1" [alt]="product.name" />
+  </div>
+
+  <div class="productbody">
+    <div class="name">
+      <p class="title">{{ product.name }}</p>
+    </div>
+  </div>
+  <div [ngClass]="{ price: true, pricesale: product.price.prev.value }">
+    <h5>{{ product.price.current.text }}</h5>
+    <p *ngIf="product.price.prev.value != null">
+      {{ product.price.prev.text }}
+    </p>
+    <span class="percetnage" *ngIf="product.price.prev.value != null"
+      >{{
+        product.price.current.value | solde: product.price.prev.value
+      }}%</span
+    >
+  </div>
+</div>
