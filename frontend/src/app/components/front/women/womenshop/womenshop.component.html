@@ -1,46 +1,192 @@
 <nav class="navbar">
   <div class="navitems">
     <div class="sale">
-      <a class="salelink" routerLinkActive="active" routerLink="sale/cat/7046"
+      <a
+        class="salelink"
+        routerLinkActive="active"
+        routerLink="sale/cat/7046"
+        (click)="sale()"
         >SALE</a
       >
     </div>
-    <a class="nav-item" routerLinkActive="active" routerLink="new-in/cat/6992"
+    <a
+      class="nav-item"
+      routerLinkActive="active"
+      [routerLink]="['new-in/cat/', 27108]"
+      (click)="newin()"
       >NEW</a
     >
-    <a class="nav-item" routerLinkActive="active" routerLink="shoes/cat/4172"
+    <a
+      class="nav-item"
+      routerLinkActive="active"
+      routerLink="shoes/cat/4172"
+      (click)="shoes()"
       >SHOES</a
     >
     <a
       class="nav-item"
       routerLinkActive="active"
       routerLink="coats-&-jackets/cat/2641"
+      (click)="cj()"
       >COATS & JACKETS</a
     >
-    <a class="nav-item" routerLinkActive="active" routerLink="dresses/cat/8799"
+    <a
+      class="nav-item"
+      routerLinkActive="active"
+      routerLink="dresses/cat/8799"
+      (click)="dresses()"
       >DRESSES</a
     >
-    <a class="nav-item" routerLinkActive="active" routerLink="jeans/cat/3630"
+    <a
+      class="nav-item"
+      routerLinkActive="active"
+      routerLink="jeans/cat/3630"
+      (click)="jeans()"
       >JEANS</a
     >
     <a
       class="nav-item"
       routerLinkActive="active"
       routerLink="sportswear/cat/26091"
+      (click)="sportswear()"
       >SPORTSWEAR</a
     >
     <a
       class="nav-item"
       routerLinkActive="active"
       routerLink="accessoires/cat/4174"
+      (click)="accessoires()"
       >ACCESSOIRES</a
     >
     <a
       class="nav-item"
       routerLinkActive="active"
       routerLink="face-body/cat/1314"
+      (click)="fb()"
       >FACE + BODY</a
     >
   </div>
 </nav>
+<div class="categ">
+  <div class="super new" *ngIf="categs.new">
+    <div
+      class="supercateg"
+      routerLinkActive="superactive"
+      [routerLink]="['new-in/cat/', 2623]"
+    >
+      NEW IN: CLOTHING
+    </div>
+    <div
+      class="supercateg"
+      routerLinkActive="superactive"
+      routerLink="new-in/cat/6992"
+    >
+      NEW IN: SOHES
+    </div>
+    <div
+      class="supercateg"
+      routerLinkActive="superactive"
+      routerLink="new-in/cat/27109"
+    >
+      NEW IN: ACCESSOIRES
+    </div>
+    <div
+      class="supercateg"
+      routerLinkActive="superactive"
+      routerLink="new-in/cat/2426"
+    >
+      NEW IN: FACE + BODY
+    </div>
+  </div>
+  <div class="super shoes" *ngIf="categs.shoes">
+    <div
+      class="supercateg"
+      routerLinkActive="superactive"
+      routerLink="shoes/cat/6992"
+    >
+      NEW IN: SOHES
+    </div>
+    <div
+      class="supercateg"
+      routerLinkActive="superactive"
+      routerLink="shoes/cat/6455"
+    >
+      BOOTS
+    </div>
+    <div
+      class="supercateg"
+      routerLinkActive="superactive"
+      routerLink="shoes/cat/6456"
+    >
+      TRAINERS
+    </div>
+    <div
+      class="supercateg"
+      routerLinkActive="superactive"
+      routerLink="shoes/cat/6461"
+    >
+      HEELS
+    </div>
+  </div>
+  <div class="super coats-jackets" *ngIf="categs.cj">
+    <div
+      class="supercateg"
+      routerLinkActive="superactive"
+      routerLink="coats-&-jackets/cat/11895"
+    >
+      LEATHER JACKETS
+    </div>
+    <div
+      class="supercateg"
+      routerLinkActive="superactive"
+      routerLink="coats-&-jackets/cat/28643"
+    >
+      PUFFER JACKETS
+    </div>
+    <div
+      class="supercateg"
+      routerLinkActive="superactive"
+      routerLink="coats-&-jackets/cat/11900"
+    >
+      FAUX FUR COATS
+    </div>
+  </div>
+  <div class="super face-body" *ngIf="categs.fb">
+    <div
+      class="supercateg"
+      routerLinkActive="superactive"
+      routerLink="face-body/cat/2426"
+    >
+      NEW IN: FACE + BODY
+    </div>
+    <div
+      class="supercateg"
+      routerLinkActive="superactive"
+      routerLink="face-body/cat/4540"
+    >
+      SKIN CARE
+    </div>
+    <div
+      class="supercateg"
+      routerLinkActive="superactive"
+      routerLink="face-body/cat/5020"
+    >
+      MAKEUP
+    </div>
+    <div
+      class="supercateg"
+      routerLinkActive="superactive"
+      routerLink="face-body/cat/5021"
+    >
+      HAIR CARE
+    </div>
+    <div
+      class="supercateg"
+      routerLinkActive="superactive"
+      routerLink="face-body/cat/28425"
+    >
+      FRAGRANCES
+    </div>
+  </div>
+</div>
 <router-outlet></router-outlet>

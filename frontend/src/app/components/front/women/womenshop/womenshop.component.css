@@ -26,3 +26,23 @@ a {
   display: flex;
   justify-content: space-between;
 }
+.categ {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 2rem;
+}
+.superactive {
+  color: white;
+  font-weight: 500;
+}
+.super {
+  display: flex;
+  justify-content: space-evenly;
+}
+.supercateg {
+  cursor: pointer;
+  background-color: rgba(200, 200, 200, 0.899);
+  padding: 0.5rem 1rem;
+  border-radius: 5rem;
+  margin: 0 0.5rem;
+}

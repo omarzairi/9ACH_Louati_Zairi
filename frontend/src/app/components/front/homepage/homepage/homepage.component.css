@@ -16,10 +16,12 @@
   top: 54%;
   width: 25.5rem;
   z-index: 1;
-  border-radius: 5rem;
+
   font-size: 2rem;
+
   background-color: white;
-  border: #ff0000 2px solid;
+  color: black;
+  border: none;
   letter-spacing: 0.3rem;
   transition: background-color 0.5s;
 }

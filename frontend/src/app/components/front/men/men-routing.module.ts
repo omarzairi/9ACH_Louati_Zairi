@@ -2,7 +2,21 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MenshopComponent } from './menshop/menshop.component';
 
-const routes: Routes = [{ path: '', component: MenshopComponent }];
+const routes: Routes = [
+  {
+    path: '',
+    component: MenshopComponent,
+    children: [
+      {
+        path: ':categ/cat/:categid',
+        loadChildren: () =>
+          import('../product-list-mod/product-list-mod.module').then(
+            (module) => module.ProductListModModule
+          ),
+      },
+    ],
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

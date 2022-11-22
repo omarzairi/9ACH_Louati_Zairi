@@ -5,6 +5,7 @@ import { FrontComponent } from './front/front.component';
 import { FooterComponent } from '../components/front/footer/footer.component';
 import { HeaderComponent } from '../components/front/header/header.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     AdminComponent,
@@ -12,6 +13,6 @@ import { AppRoutingModule } from '../app-routing.module';
     HeaderComponent,
     FooterComponent,
   ],
-  imports: [CommonModule, AppRoutingModule],
+  imports: [CommonModule, AppRoutingModule, RouterModule],
 })
 export class LayoutModule {}

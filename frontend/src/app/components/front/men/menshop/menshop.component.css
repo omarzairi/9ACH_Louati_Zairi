@@ -1,0 +1,48 @@
+.navbar {
+  background-color: rgb(113, 113, 113);
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+.active {
+  color: rgb(0, 0, 0);
+}
+nav {
+  position: sticky;
+  z-index: 9;
+  top: 0;
+}
+a {
+  text-decoration: none;
+  color: white;
+  letter-spacing: 0.1rem;
+  padding-left: 3rem;
+}
+.salelink {
+  color: #ff0000;
+  padding-left: 2rem;
+}
+.navitems {
+  display: flex;
+  justify-content: space-between;
+}
+.categ {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 2rem;
+}
+.superactive {
+  color: white;
+  font-weight: 500;
+}
+.super {
+  display: flex;
+  justify-content: space-evenly;
+}
+.supercateg {
+  cursor: pointer;
+  background-color: rgba(200, 200, 200, 0.899);
+  padding: 0.5rem 1rem;
+  border-radius: 5rem;
+  margin: 0 0.5rem;
+}

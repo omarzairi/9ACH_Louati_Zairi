@@ -1,11 +1,11 @@
-<div class="product">
+<div class="product" [routerLink]="['/details', product.id]">
   <div class="top">
     <img class="image" [src]="img1" [alt]="product.name" />
   </div>
 
   <div class="productbody">
     <div class="name">
-      <p class="title">{{ product.name }}</p>
+      <p class="title">{{ product.name | titlecase }}</p>
     </div>
   </div>
   <div [ngClass]="{ price: true, pricesale: product.price.prev.value }">
@@ -17,6 +17,9 @@
       >{{
         product.price.current.value | solde: product.price.prev.value
       }}%</span
+    >
+    <span class="sellingfast" *ngIf="product.isSellingFast"
+      ><i class="fa-solid fa-bolt"></i> SELLING FAST</span
     >
   </div>
 </div>

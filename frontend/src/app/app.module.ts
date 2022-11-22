@@ -13,14 +13,15 @@ import { ProductListModModule } from './components/front/product-list-mod/produc
 import { ProductComponent } from './components/front/product/product.component';
 import { ProductListComponent } from './components/front/product-list-mod/product-list/product-list.component';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { SoldePipe } from './solde.pipe';
+import { SharedModuleModule } from './shared-module/shared-module.module';
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
     ProductComponent,
     ProductListComponent,
-    SoldePipe,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +32,8 @@ import { SoldePipe } from './solde.pipe';
     CommonModule,
     MatGridListModule,
     ProductListModModule,
+    SharedModuleModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

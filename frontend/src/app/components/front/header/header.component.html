@@ -9,9 +9,11 @@
           class="searchbar"
           type="text"
           placeholder="search for products"
+          #search
+          (change)="getSearch(search.value)"
         />
 
-        <i class="bx bx-search seaicom"></i>
+        <i [routerLink]="['/search/', query]" class="bx bx-search seaicom"></i>
       </div>
     </div>
     <div class="end">

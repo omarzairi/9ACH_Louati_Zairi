@@ -1,0 +1,200 @@
+<div class="container">
+  <div class="images">
+    <div class="mainimg">
+      <img [src]="mainimg" [alt]="product?.name" />
+    </div>
+    <div class="secondaryimgs">
+      <img
+        (click)="immain(product.media[0].img)"
+        [src]="product?.media[0].img"
+        [alt]="product?.name"
+      />
+      <img
+        (click)="immain(product.media[1].img)"
+        [src]="product?.media[1].img"
+        [alt]="product?.name"
+      />
+      <img
+        (click)="immain(product.media[2].img)"
+        [src]="product?.media[2].img"
+        [alt]="product?.name"
+      />
+      <img
+        (click)="immain(product.media[3].img)"
+        [src]="product?.media[3].img"
+        [alt]="product?.name"
+      />
+    </div>
+    <span class="percetnage" *ngIf="product?.price.prev.value != null"
+      >{{
+        product?.price.current.value | solde: product?.price.prev.value
+      }}%</span
+    >
+    <span class="sellingfast" *ngIf="product?.isSellingFast"
+      ><i class="fa-solid fa-bolt"></i> SELLING FAST</span
+    >
+  </div>
+  <div class="prodbody">
+    <div class="name">
+      <h5>{{ name | titlecase }}</h5>
+    </div>
+    <div *ngIf="product?.price.prev.value != null">
+      <h5 class="solde">Now {{ product?.price.current.text }}</h5>
+      <p>
+        Was {{ product?.price.prev.text }}
+        <span
+          >(-{{
+            product?.price.current.value | solde: product?.price.prev.value
+          }}%)</span
+        >
+      </p>
+    </div>
+    <div *ngIf="product?.price.prev.value == null">
+      <h5 class="normalp">{{ product?.price.current.text }}</h5>
+    </div>
+    <div class="info">
+      <p>Brand : {{ product?.brandName }}</p>
+      <p>Creation Date : {{ product?.dateCreation | date }}</p>
+    </div>
+    <div class="card delivery" style="width: 100%">
+      <div class="card-header">Delivery Info</div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <i class="fa-solid fa-truck"></i>
+          <span class="del"> Free Delivery</span>
+        </li>
+        <li class="list-group-item">
+          <i class="bx bxs-package"></i>
+          <span class="del">Delivery Within 3 Business Days</span>
+        </li>
+      </ul>
+    </div>
+    <button class="addtocart">ADD TO CART</button>
+  </div>
+</div>
+<!-- <div class="comments-section" *ngIf="product.comments != null">
+  <div class="title">
+    <h4>Ratings & Reviews</h4>
+    <div class="comments" *ngFor="let comment of product.comments">
+      <div class="comment-rating">
+        <span *ngIf="comment.rate == 5">
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+        </span>
+        <span *ngIf="comment.rate == 4">
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bx-star"></i>
+        </span>
+        <span *ngIf="comment.rate == 3">
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bx-star"></i>
+          <i class="bx bx-star"></i>
+        </span>
+        <span *ngIf="comment.rate == 2">
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bx-star"></i>
+          <i class="bx bx-star"></i>
+          <i class="bx bx-star"></i>
+        </span>
+        <span *ngIf="comment.rate == 1">
+          <i class="bx bxs-star"></i>
+          <i class="bx bx-star"></i>
+          <i class="bx bx-star"></i>
+          <i class="bx bx-star"></i>
+          <i class="bx bx-star"></i>
+        </span>
+      </div>
+      <div class="username">
+        <span>posted by : {{ comment.userName | uppercase }}</span>
+      </div>
+      <div class="comment">
+        <span>comment : {{ comment.comment | titlecase }}</span>
+      </div>
+      <div class="dateposted">
+        <span>posted on : {{ comment.dateR | date }}</span>
+      </div>
+    </div>
+  </div>
+</div> -->
+<div class="comments-section row" *ngIf="product?.comments != null">
+  <div class="title">
+    <h4>Ratings & Reviews</h4>
+    <div class="cards">
+      <div class="comments" *ngFor="let comment of product?.comments">
+        <div class="card text-center" style="width: 18rem">
+          <div class="card-header">
+            <div class="comment-rating">
+              <span *ngIf="comment.rate == 5">
+                <i class="bx bxs-star"></i>
+                <i class="bx bxs-star"></i>
+                <i class="bx bxs-star"></i>
+                <i class="bx bxs-star"></i>
+                <i class="bx bxs-star"></i>
+              </span>
+              <span *ngIf="comment.rate == 4">
+                <i class="bx bxs-star"></i>
+                <i class="bx bxs-star"></i>
+                <i class="bx bxs-star"></i>
+                <i class="bx bxs-star"></i>
+                <i class="bx bx-star"></i>
+              </span>
+              <span *ngIf="comment.rate == 3">
+                <i class="bx bxs-star"></i>
+                <i class="bx bxs-star"></i>
+                <i class="bx bxs-star"></i>
+                <i class="bx bx-star"></i>
+                <i class="bx bx-star"></i>
+              </span>
+              <span *ngIf="comment.rate == 2">
+                <i class="bx bxs-star"></i>
+                <i class="bx bxs-star"></i>
+                <i class="bx bx-star"></i>
+                <i class="bx bx-star"></i>
+                <i class="bx bx-star"></i>
+              </span>
+              <span *ngIf="comment.rate == 1">
+                <i class="bx bxs-star"></i>
+                <i class="bx bx-star"></i>
+                <i class="bx bx-star"></i>
+                <i class="bx bx-star"></i>
+                <i class="bx bx-star"></i>
+              </span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">
+              <div class="username">
+                <span>@{{ comment.userName | uppercase }}</span>
+              </div>
+            </h5>
+            <div class="card-text">
+              <div class="comment">
+                <span>{{ comment.comment | titlecase }}</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer text-muted">
+            <div class="dateposted">
+              <span>{{ comment.dateR | date }}</span>
+              <span> ({{ comment.dateR | days }} Days Ago)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="addcomment">
+  <input type="text" />
+  <button>ADD A REVIEW</button>
+</div>

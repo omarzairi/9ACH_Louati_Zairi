@@ -107,14 +107,23 @@ productRoute.delete("/delete/id=:id", function (req, res) {
     }
   });
 });
-productRoute.delete("/delete/categId=:id", function (req, res) {
-  Product.findOneAndDelete({ categId: req.params.id }, function (err, docs) {
-    if (docs == null) {
-      res.send("Product doesnt exist !");
-    } else {
-      res.send(docs);
-    }
-  });
+productRoute.delete("/delete/categId=:id", async function (req, res) {
+  const prods = await Product.find({ categId: req.params.id });
+  if (prods) {
+    prods.map((elem) => {
+      if (elem.price.prev.value == null) {
+        Product.findOneAndDelete({ id: elem.id }, function (err, docs) {
+          if (docs == null) {
+            res.send("Product doesnt exist !");
+          } else {
+            res.send(docs);
+          }
+        });
+      }
+    });
+  } else {
+    res.status(401);
+  }
 });
 
 productRoute.post("/add", async (req, res) => {

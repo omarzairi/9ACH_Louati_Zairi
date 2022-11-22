@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/product';
 import { ProductService } from 'src/app/product.service';
-
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-womenshop',
   templateUrl: './womenshop.component.html',
@@ -9,16 +9,133 @@ import { ProductService } from 'src/app/product.service';
 })
 export class WomenshopComponent implements OnInit {
   categs = {
-    'New in : Shoes': 6992,
-    Soes: 4172,
-    'Coats & Jackets': 2641,
-    Dresses: 8799,
-    Jeans: 3630,
-    SportsWear: 26091,
-    Accessoirs: 4174,
+    sale: false,
+    new: false,
+    shoes: false,
+    cj: false,
+    dresses: false,
+    jeans: false,
+    sportswear: false,
+    accessoires: false,
+    fb: false,
   };
-
-  constructor() {}
-
+  constructor(private ActiveRoute: ActivatedRoute) {}
+  sale() {
+    this.categs = {
+      sale: true,
+      new: false,
+      shoes: false,
+      cj: false,
+      dresses: false,
+      jeans: false,
+      sportswear: false,
+      accessoires: false,
+      fb: false,
+    };
+  }
+  newin() {
+    this.categs = {
+      sale: false,
+      new: true,
+      shoes: false,
+      cj: false,
+      dresses: false,
+      jeans: false,
+      sportswear: false,
+      accessoires: false,
+      fb: false,
+    };
+  }
+  cj() {
+    this.categs = {
+      sale: false,
+      new: false,
+      shoes: false,
+      cj: true,
+      dresses: false,
+      jeans: false,
+      sportswear: false,
+      accessoires: false,
+      fb: false,
+    };
+  }
+  dresses() {
+    this.categs = {
+      sale: false,
+      new: false,
+      shoes: false,
+      cj: false,
+      dresses: true,
+      jeans: false,
+      sportswear: false,
+      accessoires: false,
+      fb: false,
+    };
+  }
+  jeans() {
+    this.categs = {
+      sale: false,
+      new: false,
+      shoes: false,
+      cj: false,
+      dresses: false,
+      jeans: true,
+      sportswear: false,
+      accessoires: false,
+      fb: false,
+    };
+  }
+  sportswear() {
+    this.categs = {
+      sale: false,
+      new: false,
+      shoes: false,
+      cj: false,
+      dresses: false,
+      jeans: false,
+      sportswear: true,
+      accessoires: false,
+      fb: false,
+    };
+  }
+  accessoires() {
+    this.categs = {
+      sale: false,
+      new: false,
+      shoes: false,
+      cj: false,
+      dresses: false,
+      jeans: false,
+      sportswear: false,
+      accessoires: true,
+      fb: false,
+    };
+  }
+  fb() {
+    this.categs = {
+      sale: false,
+      new: false,
+      cj: false,
+      shoes: false,
+      dresses: false,
+      jeans: false,
+      sportswear: false,
+      accessoires: false,
+      fb: true,
+    };
+  }
+  shoes() {
+    this.categs = {
+      sale: false,
+      new: false,
+      cj: false,
+      shoes: true,
+      dresses: false,
+      jeans: false,
+      sportswear: false,
+      accessoires: false,
+      fb: false,
+    };
+  }
   ngOnInit(): void {}
 }

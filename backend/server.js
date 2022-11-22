@@ -14,7 +14,7 @@ app.use(express.urlencoded());
 app.use(express.json());
 
 connectDB();
-getProds();
+// getProds();
 app.use("/api/import", ImportData);
 app.use("/api/products", productRoute);
 app.use("/api/users", userRoute);

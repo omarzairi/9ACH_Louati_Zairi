@@ -2,9 +2,9 @@ import Product from "../Models/ProductModel.js";
 import fetch from "node-fetch";
 
 async function getProds() {
-  let categ = "1314";
+  let categ = "26090";
   const prods = await fetch(
-    `https://www.asos.com/api/product/search/v2/categories/${categ}?currency=USD&lang=en-GB&limit=5&offset=170&rowlength=30&store=ROW`
+    `https://www.asos.com/api/product/search/v2/categories/${categ}?currency=USD&lang=en-GB&limit=1&offset=157&rowlength=30&store=ROW`
   );
   const data = await prods.json();
 

@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ProductListComponent } from './components/front/product-list-mod/product-list/product-list.component';
+
 import { AdminComponent } from './layout/admin/admin.component';
 import { FrontComponent } from './layout/front/front.component';
 
@@ -29,6 +31,17 @@ const routes: Routes = [
           import('./components/front/women/women.module').then(
             (module) => module.WomenModule
           ),
+      },
+      {
+        path: 'details',
+        loadChildren: () =>
+          import(
+            './components/front/productdetails/productdetails.module'
+          ).then((module) => module.ProductdetailsModule),
+      },
+      {
+        path: 'search/:search',
+        component: ProductListComponent,
       },
       {
         path: 'login',
