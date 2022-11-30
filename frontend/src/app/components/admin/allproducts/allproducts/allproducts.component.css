@@ -1,0 +1,13 @@
+.container {
+  width: 100%;
+}
+span {
+  padding: 0 2rem;
+  width: 20rem;
+  border: 1px solid black;
+}
+.product {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}

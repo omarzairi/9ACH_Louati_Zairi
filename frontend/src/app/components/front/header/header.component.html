@@ -17,8 +17,13 @@
       </div>
     </div>
     <div class="end">
-      <div class="login">
+      <div class="login" *ngIf="!userLogged">
         <a routerLink="/login"><i class="fa-regular fa-user"></i>LOGIN</a>
+      </div>
+      <div class="login" *ngIf="userLogged">
+        <a routerLink="/profile"
+          ><i class="fa-regular fa-user"></i>{{ username }}</a
+        >
       </div>
       <div class="cart">
         <a href=""><i class="bx bx-shopping-bag"></i>CART</a>

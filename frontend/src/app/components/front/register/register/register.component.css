@@ -1,0 +1,61 @@
+.fa-google {
+  background: conic-gradient(
+      from -45deg,
+      #ea4335 110deg,
+      #4285f4 90deg 180deg,
+      #34a853 180deg 270deg,
+      #fbbc05 270deg
+    )
+    73% 55%/150% 150% no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+.container {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  width: 50rem;
+  border: rgb(125, 124, 124) 2px solid;
+}
+.container2 {
+  width: 80%;
+}
+button {
+  background: none;
+  border: none;
+}
+.logins {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.body {
+  display: flex;
+  justify-content: center;
+}
+.elems {
+  padding: 5rem 1rem;
+}
+.loginbutton {
+  display: block;
+  background-color: black;
+  letter-spacing: 0.3rem;
+  font-size: 1.2rem;
+  color: white;
+  width: 100%;
+  margin: 2rem 0rem;
+}
+input {
+  border: black solid 1px;
+  width: 20rem;
+  padding: 0.7rem 0.3rem;
+}
+.google {
+  font-size: 1rem;
+  vertical-align: middle;
+}
+.icon {
+  font-size: xx-large;
+}

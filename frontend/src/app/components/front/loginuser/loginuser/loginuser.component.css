@@ -13,11 +13,13 @@
   -webkit-text-fill-color: transparent;
 }
 .container {
+  margin-top: 2rem;
   display: flex;
   justify-content: center;
   width: 50rem;
   border: rgb(125, 124, 124) 2px solid;
 }
+
 .container2 {
   width: 80%;
 }

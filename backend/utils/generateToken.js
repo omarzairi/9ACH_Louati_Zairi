@@ -1,7 +1,7 @@
 import Jwt from "jsonwebtoken";
 
-const generateToken = (id) => {
-  return Jwt.sign({ id }, "9ACHproject", {
+const generateToken = (id, name) => {
+  return Jwt.sign({ id, name }, "9ACHproject", {
     expiresIn: "30d",
   });
 };

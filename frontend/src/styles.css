@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-  font-family: "Didact Gothic", sans-serif;
+  font-family: "Didact Gothic", sans-serif !important;
+  color: black;
+}
+html {
+  width: 99%;
 }

@@ -27,7 +27,7 @@ userRoute.post(
         name: user.name,
         email: user.email,
         isAdmin: user.isAdmin,
-        token: generateToken(user._id),
+        token: generateToken(user._id, user.name),
       });
     } else {
       res.status(401).json({ msg: "Invalid Email or Password !" });
@@ -56,7 +56,7 @@ userRoute.post(
           email: user.email,
           isAdmin: user.isAdmin,
           joinedAt: user.joinedAt,
-          token: generateToken(user._id),
+          token: generateToken(user._id, user.name),
         });
       } else {
         res.status(401);
@@ -75,6 +75,7 @@ userRoute.get(
         _id: user._id,
         name: user.name,
         email: user.email,
+        joinedAt: user.joinedAt,
         isAdmin: user.isAdmin,
       });
     } else {
@@ -100,7 +101,7 @@ userRoute.put(
         email: updated.email,
         isAdmin: updated.isAdmin,
         joinetAt: updated.joinedAt,
-        token: generateToken(updated._id),
+        token: generateToken(updated._id, updated.name),
       });
     } else {
       res.status(404);

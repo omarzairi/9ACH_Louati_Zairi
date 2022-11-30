@@ -44,10 +44,12 @@ productRoute.put(
         (user) => user.userName == req.body.userName
       );
       if (alreadyCommented) {
-        res.status(404).json({ msg: "already commented !" });
+        res
+          .status(404)
+          .json({ msg: "you have already commented on this product!" });
       } else {
         const upcomments = product[0].comments;
-        upcomments.push(req.body);
+        upcomments.unshift(req.body);
         const adding = await Product.findOneAndUpdate(
           { id: req.params.id },
           { comments: upcomments }

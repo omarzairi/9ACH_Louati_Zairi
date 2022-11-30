@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="product">
+    <span width="100rem">Image</span>
+    <span class="name">Name</span>
+    <span class="brand">Brand</span>
+    <span class="categ">Category</span>
+    <span class="price">Price</span>
+    <span class="selling"> Selling Fast </span>
+  </div>
+  <div class="product" *ngFor="let p of allProducts">
+    <app-adminproduct [product]="p"></app-adminproduct>
+  </div>
+</div>

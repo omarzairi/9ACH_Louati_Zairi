@@ -29,7 +29,7 @@
 }
 .login,
 .cart {
-  padding: 2rem 2rem;
+  padding: 2rem 1rem;
 }
 a {
   text-decoration: none;
@@ -46,6 +46,7 @@ a {
 }
 .end {
   display: flex;
+  justify-content: space-evenly;
 }
 body,
 html {

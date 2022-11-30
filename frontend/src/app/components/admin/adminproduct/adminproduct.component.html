@@ -1,0 +1,19 @@
+<div class="prod">
+  <span>
+    <img [src]="img1" alt="" width="100rem" />
+  </span>
+
+  <span class="name">{{ product.name }}</span>
+  <span class="brand">{{ product.brandName }}</span>
+  <span class="categ">{{ product.categorie }}</span>
+  <span class="price">{{ product.price.current.text }}</span>
+  <span class="selling">
+    <i
+      [ngClass]="{
+        'fa-solid': true,
+        ' fa-check': product.isSellingFast,
+        ' fa-x': !product.isSellingFast
+      }"
+    ></i>
+  </span>
+</div>

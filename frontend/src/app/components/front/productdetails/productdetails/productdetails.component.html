@@ -129,8 +129,8 @@
   <div class="title">
     <h4>Ratings & Reviews</h4>
     <div class="cards">
-      <div class="comments" *ngFor="let comment of product?.comments">
-        <div class="card text-center" style="width: 18rem">
+      <div class="comments" *ngFor="let comment of comments">
+        <div class="card text-center" style="width: 17rem">
           <div class="card-header">
             <div class="comment-rating">
               <span *ngIf="comment.rate == 5">
@@ -195,6 +195,16 @@
 </div>
 
 <div class="addcomment">
-  <input type="text" />
-  <button>ADD A REVIEW</button>
+  <form [formGroup]="review" (ngSubmit)="addReview()">
+    <label for="rate">Rate Porduct</label>
+    <select name="rate" id="rate" formControlName="rate">
+      <option value="1">1/5</option>
+      <option value="2">2/5</option>
+      <option value="3">3/5</option>
+      <option value="4">4/5</option>
+      <option value="5">5/5</option>
+    </select>
+    <input type="text" placeholder="Comment" formControlName="comment" />
+    <button>ADD A REVIEW</button>
+  </form>
 </div>

@@ -50,6 +50,20 @@ const routes: Routes = [
             (module) => module.LoginuserModule
           ),
       },
+      {
+        path: 'register',
+        loadChildren: () =>
+          import('./components/front/register/register.module').then(
+            (module) => module.RegisterModule
+          ),
+      },
+      {
+        path: 'profile',
+        loadChildren: () =>
+          import('./components/front/profile/profile.module').then(
+            (module) => module.ProfileModule
+          ),
+      },
     ],
   },
   {
@@ -57,10 +71,24 @@ const routes: Routes = [
     component: AdminComponent,
     children: [
       {
+        path: '',
+        loadChildren: () =>
+          import('./components/admin/dashboard/dashboard.module').then(
+            (module) => module.DashboardModule
+          ),
+      },
+      {
         path: 'dashboard',
         loadChildren: () =>
           import('./components/admin/dashboard/dashboard.module').then(
             (module) => module.DashboardModule
+          ),
+      },
+      {
+        path: 'allproducts',
+        loadChildren: () =>
+          import('./components/admin/allproducts/allproducts.module').then(
+            (module) => module.AllproductsModule
           ),
       },
       {
