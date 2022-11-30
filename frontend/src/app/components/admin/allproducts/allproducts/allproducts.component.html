@@ -1,13 +1,34 @@
 <div class="container">
-  <div class="product">
-    <span width="100rem">Image</span>
-    <span class="name">Name</span>
-    <span class="brand">Brand</span>
-    <span class="categ">Category</span>
-    <span class="price">Price</span>
-    <span class="selling"> Selling Fast </span>
+  <div class="product list-group">
+    <div class="prod list-group-item d-flex justify-content-between">
+      <span width="100rem">Image</span>
+      <span class="name">Name</span>
+      <span class="brand">Brand</span>
+      <span class="categ">Category</span>
+      <span class="price">Price</span>
+      <span class="selling"> Selling Fast </span>
+    </div>
   </div>
-  <div class="product" *ngFor="let p of allProducts">
+  <div
+    class="product list-group"
+    *ngFor="
+      let p of allProducts
+        | paginate
+          : {
+              itemsPerPage: 20,
+              currentPage: page,
+              totalItems: nbProd
+            }
+    "
+  >
     <app-adminproduct [product]="p"></app-adminproduct>
+  </div>
+  <div class="d-flex justify-content-center pagination">
+    <pagination-controls
+      previousLabel="Prev"
+      nextLabel="Next"
+      (pageChange)="page = $event"
+    >
+    </pagination-controls>
   </div>
 </div>

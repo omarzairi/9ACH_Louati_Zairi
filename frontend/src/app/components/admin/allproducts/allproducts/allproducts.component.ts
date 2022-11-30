@@ -10,7 +10,8 @@ import { ProductService } from 'src/app/Services/product.service';
 })
 export class AllproductsComponent implements OnInit {
   allProducts!: Product[];
-
+  nbProd: Number;
+  page: Number = 1;
   constructor(
     private ProductServ: ProductService,
     private ActiveRoute: ActivatedRoute
@@ -20,6 +21,7 @@ export class AllproductsComponent implements OnInit {
     this.ProductServ.getAllProducts().subscribe((data) => {
       this.allProducts = data;
       this.allProducts.sort((a, b) => this.compare(a.name, b.name));
+      this.nbProd = this.allProducts.length;
     });
   }
 }

@@ -1,10 +1,19 @@
 span {
-  padding: 0 2rem;
   width: 10rem;
-  border: 1px solid black;
 }
 .prod {
   width: 100%;
   display: flex;
   justify-content: flex-start;
+}
+.nom {
+  width: fit-content;
+}
+.selling,
+.price {
+  text-align: center;
+}
+.gest {
+  display: flex;
+  justify-content: center;
 }
