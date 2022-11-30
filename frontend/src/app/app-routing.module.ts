@@ -98,6 +98,20 @@ const routes: Routes = [
             (module) => module.LoginadminModule
           ),
       },
+      {
+        path: 'search/:search',
+        loadChildren: () =>
+          import('./components/admin/allproducts/allproducts.module').then(
+            (module) => module.AllproductsModule
+          ),
+      },
+      {
+        path: 'addproduct',
+        loadChildren: () =>
+          import('./components/admin/addproduct/addproduct.module').then(
+            (module) => module.AddproductModule
+          ),
+      },
     ],
   },
 ];

@@ -43,6 +43,16 @@
         <span>All Products</span></a
       >
     </li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        routerLink="/admin/addproduct"
+        routerLinkActive="active"
+      >
+        <i class="fa-solid fa-plus"></i>
+        <span>Add Product</span></a
+      >
+    </li>
     <hr class="sidebar-divider" />
 
     <div class="sidebar-heading">Addons</div>
@@ -95,9 +105,15 @@
               placeholder="Search for..."
               aria-label="Search"
               aria-describedby="basic-addon2"
+              #search
+              (change)="getSearch(search.value)"
             />
             <div class="input-group-append">
-              <button class="btn btn-dark" type="button">
+              <button
+                class="btn btn-dark"
+                type="button"
+                [routerLink]="['/admin/search/', query]"
+              >
                 <i class="fas fa-search fa-sm"></i>
               </button>
             </div>
@@ -246,6 +262,10 @@
               class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
               aria-labelledby="userDropdown"
             >
+              <a class="dropdown-item" href="#">
+                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                Profile
+              </a>
               <a
                 class="dropdown-item"
                 href="#"
