@@ -18,10 +18,18 @@
   </span>
 </div>
 <div class="gest">
-  <button type="button" class="btn btn-danger px-5 mx-3">
+  <button
+    type="button"
+    class="btn btn-danger px-5 mx-3"
+    (click)="deleteProd(product.id)"
+  >
     <i class="fa-solid fa-trash"></i> Delete
   </button>
-  <button type="button" class="btn btn-primary px-5 mx-3">
+  <button
+    type="button"
+    class="btn btn-primary px-5 mx-3"
+    [routerLink]="['/admin/editproduct', product.id]"
+  >
     <i class="fa-solid fa-pen-to-square"></i> Edit
   </button>
 </div>

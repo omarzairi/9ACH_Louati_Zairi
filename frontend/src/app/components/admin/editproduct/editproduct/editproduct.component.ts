@@ -1,17 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/product';
 import { ProductService } from 'src/app/Services/product.service';
 
 @Component({
-  selector: 'app-addproduct',
-  templateUrl: './addproduct.component.html',
-  styleUrls: ['./addproduct.component.css'],
+  selector: 'app-editproduct',
+  templateUrl: './editproduct.component.html',
+  styleUrls: ['./editproduct.component.css'],
 })
-export class AddproductComponent implements OnInit {
+export class EditproductComponent implements OnInit {
+  prodid: Number;
+  prod: Product;
   Prod: FormGroup;
-  produit: Product;
-  constructor(private fb: FormBuilder, private productServ: ProductService) {}
+  date: String;
+  constructor(
+    private ActiveRoute: ActivatedRoute,
+    private prodserv: ProductService,
+    private fb: FormBuilder
+  ) {}
+  getDate() {
+    return this.date.slice(0, this.date.indexOf('T'));
+  }
   getCateg(id: any) {
     switch (id) {
       case '7046':
@@ -68,9 +78,9 @@ export class AddproductComponent implements OnInit {
         return 'New In';
     }
   }
-  addProd() {
-    this.produit = new Product(
-      this.Prod.value['id'],
+  editProd() {
+    let produit = new Product(
+      this.prod.id,
       this.Prod.value['name'],
       {
         current: {
@@ -100,26 +110,34 @@ export class AddproductComponent implements OnInit {
       this.getCateg(this.Prod.value['categorie']),
       this.Prod.value['categorie'],
       this.Prod.value['brandName'],
-      []
+      this.prod.comments
     );
-    this.productServ
-      .addProduct(this.produit)
-      .subscribe((data) => console.log(data));
+    this.prodserv.editProduct(this.prodid, produit).subscribe();
   }
+
   ngOnInit(): void {
-    this.Prod = this.fb.nonNullable.group({
-      id: [''],
-      name: [''],
-      categorie: ['27110'],
-      prev: [''],
-      current: [''],
-      isSellingFast: true,
-      dateCreation: [''],
-      img1: [''],
-      img2: [''],
-      img3: [''],
-      img4: [''],
-      brandName: [''],
+    this.ActiveRoute.params.subscribe((params) => {
+      this.prodid = params['id'];
+      this.prodserv.getProductById(params['id']).subscribe((product) => {
+        this.prod = product[0];
+        this.date = String(this.prod.dateCreation);
+
+        this.Prod = this.fb.nonNullable.group({
+          name: this.prod.name,
+          categorie: this.prod.categId,
+          prev: this.prod.price.prev.value
+            ? this.prod.price.prev.value.toFixed(2)
+            : null,
+          current: this.prod.price.current.value.toFixed(2),
+          isSellingFast: this.prod.isSellingFast,
+          dateCreation: this.getDate(),
+          img1: this.prod.media[0].img,
+          img2: this.prod.media[1].img,
+          img3: this.prod.media[2].img,
+          img4: this.prod.media[3].img,
+          brandName: this.prod.brandName,
+        });
+      });
     });
   }
 }

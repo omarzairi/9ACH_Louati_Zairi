@@ -52,17 +52,6 @@ export class ProductdetailsComponent implements OnInit {
     this.ActiveRoute.params.subscribe((params) => {
       this.prodid = params['id'];
       this.prodserv.getProductById(params['id']).subscribe((product) => {
-        if (String(product[0].id).length != 10) {
-          let t = product[0].media[0].img.slice(
-            0,
-            product[0].media[0].img.indexOf(product[0].id + '-1-') +
-              String(product[0].id).length
-          );
-
-          product[0].media[1].img = t + '-2';
-          product[0].media[2].img = t + '-3';
-          product[0].media[3].img = t + '-4';
-        }
         product[0].media.map((img) => {
           img.img = img.img + '?$n_240w$&wid=3000&fit=constrain';
         });

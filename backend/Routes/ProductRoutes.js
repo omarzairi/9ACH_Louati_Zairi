@@ -133,7 +133,7 @@ productRoute.post("/add", async (req, res) => {
     name: req.body.name,
     id: req.body.id,
     categId: req.body.categId,
-    categorie: req.body.categoryName,
+    categorie: req.body.categorie,
     price: {
       current: {
         value: req.body.price.current.value,

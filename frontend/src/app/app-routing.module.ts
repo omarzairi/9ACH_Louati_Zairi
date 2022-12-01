@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProductListComponent } from './components/front/product-list-mod/product-list/product-list.component';
 
 import { AdminComponent } from './layout/admin/admin.component';
+import { AuthAdminComponent } from './layout/auth-admin/auth-admin.component';
 import { FrontComponent } from './layout/front/front.component';
 
 const routes: Routes = [
@@ -91,13 +92,7 @@ const routes: Routes = [
             (module) => module.AllproductsModule
           ),
       },
-      {
-        path: 'login',
-        loadChildren: () =>
-          import('./components/admin/loginadmin/loginadmin.module').then(
-            (module) => module.LoginadminModule
-          ),
-      },
+
       {
         path: 'search/:search',
         loadChildren: () =>
@@ -112,8 +107,16 @@ const routes: Routes = [
             (module) => module.AddproductModule
           ),
       },
+      {
+        path: 'editproduct/:id',
+        loadChildren: () =>
+          import('./components/admin/editproduct/editproduct.module').then(
+            (module) => module.EditproductModule
+          ),
+      },
     ],
   },
+  { path: 'admin/login', component: AuthAdminComponent },
 ];
 
 @NgModule({

@@ -1,17 +1,5 @@
 <div class="container">
-  <form [formGroup]="Prod" (ngSubmit)="addProd()">
-    <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Product ID</label>
-      <input
-        type="text"
-        class="form-control"
-        placeholder="product id"
-        id="exampleInputEmail1"
-        aria-describedby="emailHelp"
-        formControlName="id"
-      />
-      <div id="emailHelp" class="form-text">Product ID Should be unique.</div>
-    </div>
+  <form [formGroup]="Prod" *ngIf="Prod" (ngSubmit)="editProd()">
     <div class="mb-3">
       <label for="exampleInputPassword1" class="form-label">Product Name</label>
       <input
@@ -155,6 +143,6 @@
       />
     </div>
 
-    <button type="submit" class="btn btn-dark">Add Product</button>
+    <button type="submit" class="btn btn-dark">Save Product</button>
   </form>
 </div>

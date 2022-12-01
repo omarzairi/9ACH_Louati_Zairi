@@ -30,4 +30,15 @@ export class ProductService {
       headers: reqHeader,
     });
   }
+  addProduct(body: Product): Observable<Product> {
+    return this.http.post<Product>(`${URL}add`, body, {
+      headers: reqHeader,
+    });
+  }
+  deleteProduct(id: Number): Observable<Product> {
+    return this.http.delete<Product>(`${URL}delete/id=${id}`);
+  }
+  editProduct(id: Number, body: Product): Observable<Product> {
+    return this.http.put<Product>(`${URL}update/${id}`, body);
+  }
 }
