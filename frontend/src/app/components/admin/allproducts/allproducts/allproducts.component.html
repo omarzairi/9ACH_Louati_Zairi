@@ -21,7 +21,10 @@
             }
     "
   >
-    <app-adminproduct [product]="p"></app-adminproduct>
+    <app-adminproduct
+      [product]="p"
+      (DelProd)="Delete($event)"
+    ></app-adminproduct>
   </div>
   <div class="d-flex justify-content-center pagination">
     <pagination-controls

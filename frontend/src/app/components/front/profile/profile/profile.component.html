@@ -1,3 +1,18 @@
+<div class="dontmatch text-center">
+  <div class="alert alert-danger text-center errmess" *ngIf="dontmatch == true">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+
+    Passwords Dont Match !
+  </div>
+  <div
+    class="alert alert-success text-center errmess"
+    *ngIf="succmess != undefined"
+  >
+    <i class="fa-solid fa-check"></i>
+
+    {{ succmess | titlecase }}
+  </div>
+</div>
 <div class="container">
   <div class="card">
     <div class="card__border">
@@ -18,31 +33,50 @@
       </div>
     </div>
   </div>
-  <form>
+
+  <form [formGroup]="profile">
     <div class="informations">
       <div class="username">
         <div class="name">
           <p>USERNAME</p>
           <br />
-          <input type="text" [value]="user.name" />
+          <input type="text" formControlName="name" />
         </div>
         <div class="email">
           <p>E-MAIL ADRESS</p>
           <br />
-          <input type="text" [value]="user.email" />
+          <input type="text" formControlName="email" />
         </div>
       </div>
       <div class="newpass">
         <div class="pass">
           <p>NEW PASSWORD</p>
           <br />
-          <input type="password" />
+          <input type="password" formControlName="password" />
         </div>
         <div class="reppass">
           <p>CONFIRM PASSWORD</p>
           <br />
-          <input type="password" />
+          <input type="password" formControlName="cnfpass" />
         </div>
+      </div>
+      <div class="buttons text-center">
+        <button
+          type="button"
+          class="btn btn-secondary btn-lg px-3"
+          (click)="udpadeProf()"
+        >
+          <i class="fa-solid fa-pen-to-square"></i>
+          Update Profile
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger btn-lg ml-4 px-3"
+          (click)="logout()"
+        >
+          <i class="fa-solid fa-right-from-bracket"></i>
+          Log Out
+        </button>
       </div>
     </div>
   </form>

@@ -14,13 +14,11 @@ const protect = asyncHandler(async (req, res, next) => {
       next();
     } catch (error) {
       console.log(error);
-      res.status(401);
-      throw new Error("Sorry Token Failed !");
+      res.status(401).json({ msg: "Sorry not authorized Login or Register !" });
     }
   }
   if (!token) {
-    res.status(401);
-    throw new Error("Sorry not authorized !");
+    res.status(401).json({ msg: "Sorry not authorized Login or Register !" });
   }
 });
 export default protect;

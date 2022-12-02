@@ -40,4 +40,13 @@ export class AuthUserService {
       headers: reqHeader,
     });
   }
+  editProfile(body: User): Observable<User> {
+    var reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + localStorage.getItem('token'),
+    });
+    return this.http.put<User>(`${URL}/profile`, body, {
+      headers: reqHeader,
+    });
+  }
 }

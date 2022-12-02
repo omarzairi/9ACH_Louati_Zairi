@@ -1,5 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/product';
 import { ProductService } from 'src/app/Services/product.service';
 
@@ -11,7 +13,12 @@ import { ProductService } from 'src/app/Services/product.service';
 export class AddproductComponent implements OnInit {
   Prod: FormGroup;
   produit: Product;
-  constructor(private fb: FormBuilder, private productServ: ProductService) {}
+  errormsg: String;
+  constructor(
+    private fb: FormBuilder,
+    private productServ: ProductService,
+    private route: Router
+  ) {}
   getCateg(id: any) {
     switch (id) {
       case '7046':
@@ -102,9 +109,10 @@ export class AddproductComponent implements OnInit {
       this.Prod.value['brandName'],
       []
     );
-    this.productServ
-      .addProduct(this.produit)
-      .subscribe((data) => console.log(data));
+    this.productServ.addProduct(this.produit).subscribe(
+      (data) => this.route.navigate(['/admin/allproducts']),
+      (error: HttpErrorResponse) => (this.errormsg = error.error.msg)
+    );
   }
   ngOnInit(): void {
     this.Prod = this.fb.nonNullable.group({

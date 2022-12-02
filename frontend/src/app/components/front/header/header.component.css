@@ -1,6 +1,7 @@
 .logo img {
   width: 7rem;
   height: 4rem;
+  margin-top: 15%;
 }
 .logo {
   display: flex;

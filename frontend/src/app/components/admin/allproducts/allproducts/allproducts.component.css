@@ -10,3 +10,6 @@ span {
   display: flex;
   justify-content: flex-start;
 }
+.pagination {
+  margin-top: 0.5rem;
+}

@@ -8,11 +8,14 @@ var reqHeader = new HttpHeaders({
   Authorization: 'Bearer ' + localStorage.getItem('token'),
 });
 const URL = 'http://localhost:5000/api/products/';
+
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
+  deletedId: Number;
   constructor(private http: HttpClient) {}
+
   getAllProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(URL);
   }

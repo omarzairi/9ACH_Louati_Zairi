@@ -129,30 +129,35 @@ productRoute.delete("/delete/categId=:id", async function (req, res) {
 });
 
 productRoute.post("/add", async (req, res) => {
-  const prod = new Product({
-    name: req.body.name,
-    id: req.body.id,
-    categId: req.body.categId,
-    categorie: req.body.categorie,
-    price: {
-      current: {
-        value: req.body.price.current.value,
-        text: req.body.price.current.text,
+  const product = await Product.find({ id: req.params.id });
+  if (product) {
+    res.status(401).json({ msg: "Product Already Added In Store !" });
+  } else {
+    const prod = new Product({
+      name: req.body.name,
+      id: req.body.id,
+      categId: req.body.categId,
+      categorie: req.body.categorie,
+      price: {
+        current: {
+          value: req.body.price.current.value,
+          text: req.body.price.current.text,
+        },
+        prev: {
+          value: req.body.price.prev.value,
+          text: req.body.price.prev.text,
+        },
       },
-      prev: {
-        value: req.body.price.prev.value,
-        text: req.body.price.prev.text,
-      },
-    },
-    isInStock: req.body.isInStock,
-    isSellingFast: req.body.isSellingFast,
-    dateCreation: req.body.dateCreation,
-    media: req.body.media,
-    brandName: req.body.brandName,
-    comments: req.body.comments,
-  });
-  const val = await prod.save();
-  res.json(val);
+      isInStock: req.body.isInStock,
+      isSellingFast: req.body.isSellingFast,
+      dateCreation: req.body.dateCreation,
+      media: req.body.media,
+      brandName: req.body.brandName,
+      comments: req.body.comments,
+    });
+    const val = await prod.save();
+    res.status(201).json({ msg: "Product Added Successfully !", val });
+  }
 });
 productRoute.put(
   "/update/:id",

@@ -1,5 +1,5 @@
 span {
-  width: 10rem;
+  width: 8rem;
 }
 .prod {
   width: 100%;
@@ -9,11 +9,16 @@ span {
 .nom {
   width: fit-content;
 }
-.selling,
-.price {
-  text-align: center;
+.selling {
+  padding-left: 1.2rem;
 }
 .gest {
   display: flex;
   justify-content: center;
+  position: absolute;
+  top: 70%;
+  right: 45%;
+}
+.item {
+  position: relative;
 }

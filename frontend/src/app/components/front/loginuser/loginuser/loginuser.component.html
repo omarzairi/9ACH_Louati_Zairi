@@ -4,10 +4,13 @@
       <button routerLink="/register">REGISTER</button>
       <button routerLink="/login">LOGIN</button>
     </div>
-    <form [formGroup]="userlogin">
+    <form [formGroup]="userlogin" (ngSubmit)="login()">
       <div class="body">
         <div class="elems">
-          <div class="alert alert-danger" *ngIf="errormsg != undefined">
+          <div
+            class="alert alert-danger text-center"
+            *ngIf="errormsg != undefined"
+          >
             <i class="fa-solid fa-triangle-exclamation"></i>
 
             {{ errormsg | titlecase }}
@@ -20,15 +23,7 @@
             placeholder="Password"
             formControlName="password"
           />
-          <button class="loginbutton" (click)="login()">LOG IN</button>
-          <div class="loginwith">
-            <div class="google">
-              <button class="google">
-                <i class="fab fa-google fa icon"></i>
-                LOG IN WITH GOOGLE
-              </button>
-            </div>
-          </div>
+          <button class="loginbutton" type="submit">LOG IN</button>
         </div>
       </div>
     </form>

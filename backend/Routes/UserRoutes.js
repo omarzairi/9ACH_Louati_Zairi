@@ -35,13 +35,42 @@ userRoute.post(
   })
 );
 userRoute.post(
+  "/loginadmin",
+  asyncHandler(async (req, res) => {
+    const emailf = req.body.email;
+
+    const password = req.body.password;
+    const user = await User.findOne({ email: emailf });
+
+    if (user && password == user.password) {
+      if (user.isAdmin) {
+        res.json({
+          _id: user._id,
+          name: user.name,
+          email: user.email,
+          isAdmin: user.isAdmin,
+          token: generateToken(user._id, user.name),
+        });
+      } else {
+        res.status(401).json({ msg: "Hmmm You Are Not An Admin." });
+      }
+    } else {
+      res.status(401).json({ msg: "Invalid Email or Password !" });
+    }
+  })
+);
+userRoute.post(
   "/signup",
   asyncHandler(async (req, res) => {
     const { name, email, password } = req.body;
     const userExiste = await User.findOne({ email });
-    if (userExiste) {
-      res.status(401);
-      throw new Error("User Already Exists !");
+    const userExiste1 = await User.findOne({ name });
+    if (userExiste || userExiste1) {
+      if (userExiste) {
+        res.status(401).json({ msg: "User With This Email Already Exists!" });
+      } else {
+        res.status(401).json({ msg: "User With This Name Already Exists!" });
+      }
     } else {
       const user = await User.create({
         name,
@@ -59,8 +88,7 @@ userRoute.post(
           token: generateToken(user._id, user.name),
         });
       } else {
-        res.status(401);
-        throw new Error("Verify Info");
+        res.status(401).json({ msg: "Verify Info" });
       }
     }
   })
@@ -102,6 +130,7 @@ userRoute.put(
         isAdmin: updated.isAdmin,
         joinetAt: updated.joinedAt,
         token: generateToken(updated._id, updated.name),
+        msg: "Profile Updated Successfully !",
       });
     } else {
       res.status(404);

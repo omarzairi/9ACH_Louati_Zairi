@@ -17,6 +17,9 @@ export class AllproductsComponent implements OnInit {
     private ActiveRoute: ActivatedRoute
   ) {}
   compare = (a: String, b: String) => (a > b ? 1 : -1);
+  Delete(prod: Product) {
+    this.allProducts = this.allProducts.filter((p) => p.id != prod.id);
+  }
   ngOnInit(): void {
     this.ActiveRoute.params.subscribe((params) => {
       if (Object.keys(params)[0] == 'search') {

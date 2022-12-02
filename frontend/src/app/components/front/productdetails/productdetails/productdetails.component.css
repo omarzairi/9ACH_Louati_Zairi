@@ -44,7 +44,10 @@ i {
 .normalp {
   color: rgb(71, 71, 71);
 }
-
+.comms {
+  width: 40rem;
+  margin-left: 30%;
+}
 .secondaryimgs {
   display: flex;
   justify-content: space-evenly;
@@ -58,6 +61,7 @@ i {
   padding: 2rem;
   width: 25rem;
 }
+
 .percetnage {
   position: absolute;
   top: 5%;

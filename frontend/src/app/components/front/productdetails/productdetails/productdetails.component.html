@@ -27,7 +27,7 @@
     </div>
     <span class="percetnage" *ngIf="product?.price.prev.value != null"
       >{{
-        product?.price.current.value | solde: product?.price.prev.value
+        product?.price.current.value | solde : product?.price.prev.value
       }}%</span
     >
     <span class="sellingfast" *ngIf="product?.isSellingFast"
@@ -44,7 +44,7 @@
         Was {{ product?.price.prev.text }}
         <span
           >(-{{
-            product?.price.current.value | solde: product?.price.prev.value
+            product?.price.current.value | solde : product?.price.prev.value
           }}%)</span
         >
       </p>
@@ -72,59 +72,7 @@
     <button class="addtocart">ADD TO CART</button>
   </div>
 </div>
-<!-- <div class="comments-section" *ngIf="product.comments != null">
-  <div class="title">
-    <h4>Ratings & Reviews</h4>
-    <div class="comments" *ngFor="let comment of product.comments">
-      <div class="comment-rating">
-        <span *ngIf="comment.rate == 5">
-          <i class="bx bxs-star"></i>
-          <i class="bx bxs-star"></i>
-          <i class="bx bxs-star"></i>
-          <i class="bx bxs-star"></i>
-          <i class="bx bxs-star"></i>
-        </span>
-        <span *ngIf="comment.rate == 4">
-          <i class="bx bxs-star"></i>
-          <i class="bx bxs-star"></i>
-          <i class="bx bxs-star"></i>
-          <i class="bx bxs-star"></i>
-          <i class="bx bx-star"></i>
-        </span>
-        <span *ngIf="comment.rate == 3">
-          <i class="bx bxs-star"></i>
-          <i class="bx bxs-star"></i>
-          <i class="bx bxs-star"></i>
-          <i class="bx bx-star"></i>
-          <i class="bx bx-star"></i>
-        </span>
-        <span *ngIf="comment.rate == 2">
-          <i class="bx bxs-star"></i>
-          <i class="bx bxs-star"></i>
-          <i class="bx bx-star"></i>
-          <i class="bx bx-star"></i>
-          <i class="bx bx-star"></i>
-        </span>
-        <span *ngIf="comment.rate == 1">
-          <i class="bx bxs-star"></i>
-          <i class="bx bx-star"></i>
-          <i class="bx bx-star"></i>
-          <i class="bx bx-star"></i>
-          <i class="bx bx-star"></i>
-        </span>
-      </div>
-      <div class="username">
-        <span>posted by : {{ comment.userName | uppercase }}</span>
-      </div>
-      <div class="comment">
-        <span>comment : {{ comment.comment | titlecase }}</span>
-      </div>
-      <div class="dateposted">
-        <span>posted on : {{ comment.dateR | date }}</span>
-      </div>
-    </div>
-  </div>
-</div> -->
+
 <div class="comments-section row" *ngIf="product?.comments != null">
   <div class="title">
     <h4>Ratings & Reviews</h4>
@@ -194,7 +142,7 @@
   </div>
 </div>
 
-<div class="addcomment">
+<!-- <div class="addcomment">
   <form [formGroup]="review" (ngSubmit)="addReview()">
     <label for="rate">Rate Porduct</label>
     <select name="rate" id="rate" formControlName="rate">
@@ -207,4 +155,55 @@
     <input type="text" placeholder="Comment" formControlName="comment" />
     <button>ADD A REVIEW</button>
   </form>
-</div>
+</div> -->
+<form [formGroup]="review" (ngSubmit)="addReview()">
+  <div class="card comms">
+    <div
+      class="alert alert-danger err text-center"
+      *ngIf="errmess != undefined"
+    >
+      <i class="fa-solid fa-triangle-exclamation"></i>
+
+      {{ errmess | titlecase }}
+    </div>
+    <div class="card-body p-4">
+      <div class="d-flex flex-start w-100">
+        <img
+          class="rounded-circle shadow-1-strong me-3"
+          src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+          alt="avatar"
+          width="65"
+          height="65"
+        />
+        <div class="w-100">
+          <p *ngIf="username != undefined">@{{ username | uppercase }}</p>
+          <h5>Add a comment</h5>
+          <label for="rate">Rate Product :</label>
+          <select name="rate" id="rate" formControlName="rate" class="select">
+            <option value="1">1/5</option>
+            <option value="2">2/5</option>
+            <option value="3">3/5</option>
+            <option value="4">4/5</option>
+            <option value="5">5/5</option>
+          </select>
+          <div class="form-outline">
+            <textarea
+              class="form-control"
+              id="textAreaExample"
+              rows="4"
+              formControlName="comment"
+            ></textarea>
+            <label class="form-label text-secondary" for="textAreaExample"
+              >What is your review?</label
+            >
+          </div>
+          <div class="d-flex justify-content-between mt-3">
+            <button type="submit" class="btn btn-secondary">
+              Send <i class="fas fa-long-arrow-alt-right ms-1"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

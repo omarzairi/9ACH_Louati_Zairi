@@ -1,35 +1,37 @@
-<div class="prod list-group-item d-flex justify-content-between">
-  <span>
-    <img [src]="img1" alt="" width="100rem" />
-  </span>
+<div class="item">
+  <div class="prod list-group-item d-flex justify-content-between">
+    <span>
+      <img [src]="img1" alt="" width="100rem" />
+    </span>
 
-  <span class="name">{{ product.name }}</span>
-  <span class="brand">{{ product.brandName }}</span>
-  <span class="categ">{{ product.categorie }}</span>
-  <span class="price">{{ product.price.current.text }}</span>
-  <span class="selling">
-    <i
-      [ngClass]="{
-        'fa-solid': true,
-        ' fa-check': product.isSellingFast,
-        ' fa-x': !product.isSellingFast
-      }"
-    ></i>
-  </span>
-</div>
-<div class="gest">
-  <button
-    type="button"
-    class="btn btn-danger px-5 mx-3"
-    (click)="deleteProd(product.id)"
-  >
-    <i class="fa-solid fa-trash"></i> Delete
-  </button>
-  <button
-    type="button"
-    class="btn btn-primary px-5 mx-3"
-    [routerLink]="['/admin/editproduct', product.id]"
-  >
-    <i class="fa-solid fa-pen-to-square"></i> Edit
-  </button>
+    <span class="name">{{ product.name }}</span>
+    <span class="brand">{{ product.brandName }}</span>
+    <span class="categ">{{ product.categorie }}</span>
+    <span class="price">{{ product.price.current.text }}</span>
+    <span class="selling">
+      <i
+        [ngClass]="{
+          'fa-solid': true,
+          ' fa-check': product.isSellingFast,
+          ' fa-x': !product.isSellingFast
+        }"
+      ></i>
+    </span>
+  </div>
+  <div class="gest center-block text-center">
+    <button
+      type="button"
+      class="btn btn-danger px-3 mx-1"
+      (click)="deleteProd(product.id)"
+    >
+      <i class="fa-solid fa-trash"></i>
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary px-3 mx-1"
+      [routerLink]="['/admin/editproduct', product.id]"
+    >
+      <i class="fa-solid fa-pen-to-square"></i>
+    </button>
+  </div>
 </div>

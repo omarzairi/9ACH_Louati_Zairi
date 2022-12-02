@@ -10,6 +10,9 @@ export class AdminComponent implements OnInit {
   getSearch(s: String) {
     this.query = s;
   }
+  scrollToTop() {
+    window.scroll(0, 0);
+  }
   constructor() {}
 
   ngOnInit(): void {}

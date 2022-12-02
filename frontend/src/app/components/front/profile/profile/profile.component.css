@@ -23,6 +23,7 @@ img {
   display: flex;
   place-items: center;
   justify-content: space-between;
+  margin-bottom: 5rem;
 }
 
 .card {
@@ -102,6 +103,15 @@ img {
 }
 .informations {
   display: inline;
+  margin-bottom: 5rem;
+}
+.dontmatch {
+  width: 50%;
+  padding: 1rem;
+  margin-left: 25%;
+}
+.errmess {
+  padding: 1rem;
 }
 .username,
 .newpass {

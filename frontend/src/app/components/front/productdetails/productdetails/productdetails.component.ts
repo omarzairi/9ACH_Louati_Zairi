@@ -18,8 +18,9 @@ export class ProductdetailsComponent implements OnInit {
   mainimg: String;
   name: String;
   rev: Review;
+  errmess: String;
   comments: Review[];
-
+  username: String = localStorage.getItem('username');
   immain(img: String) {
     this.mainimg = img;
   }
@@ -39,7 +40,7 @@ export class ProductdetailsComponent implements OnInit {
         console.log(product);
         this.comments.unshift(this.rev);
       },
-      (err: HttpErrorResponse) => console.log(err)
+      (err: HttpErrorResponse) => (this.errmess = err.error.msg)
     );
   }
   constructor(
@@ -62,7 +63,7 @@ export class ProductdetailsComponent implements OnInit {
       });
     });
     this.review = this.fb.nonNullable.group({
-      rate: [''],
+      rate: '5',
       comment: [''],
     });
   }

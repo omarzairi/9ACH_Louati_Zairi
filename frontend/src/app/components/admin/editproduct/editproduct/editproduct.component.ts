@@ -70,10 +70,10 @@ export class EditproductComponent implements OnInit {
         return 'Skin Care';
       case '5021':
         return 'Hair Care';
-      case '5020':
-        return 'Makeup';
       case '28425':
         return 'Fragrances';
+      case '5020':
+        return 'Makeup';
       default:
         return 'New In';
     }
