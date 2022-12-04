@@ -1,0 +1,129 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  height: 50vh;
+  margin-inline: 1.5rem;
+  display: flex;
+  place-items: center;
+  justify-content: space-between;
+  margin-bottom: 5rem;
+}
+
+.card {
+  position: absolute;
+  width: 256px;
+  background-color: #000;
+  padding: 1.25rem 2rem 3rem;
+  border-radius: 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 16px hsla(29, 75%, 8%, 0.2);
+}
+
+.card__img {
+  width: 96px;
+  border-radius: 50%;
+}
+
+.card__border {
+  width: 110px;
+  height: 110px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 0.75rem;
+}
+
+.card__name {
+  color: #fff;
+  font-size: #fff;
+  font-weight: 500;
+}
+
+.card__profession {
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.card__social {
+  width: 200px;
+  background-color: #fff;
+  padding: 0.75rem;
+  height: 20%;
+  border-radius: 3rem;
+  text-align: initial;
+  box-shadow: 0 8px 24px hsla(0, 0%, 0%, 0.3);
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1.75rem;
+  margin: 0 auto;
+  overflow: hidden;
+  cursor: pointer;
+  transform-origin: 18px 17px;
+}
+
+.card__social-text {
+  display: block;
+  color: #000;
+  font-size: 0.75rem;
+  padding-top: 0.5rem;
+  font-weight: 500;
+}
+
+.card__social-text,
+.card__social-list {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.card__social-text {
+  top: 0.5rem;
+}
+.informations {
+  display: inline;
+  margin-bottom: 5rem;
+}
+.dontmatch {
+  width: 50%;
+  padding: 1rem;
+  margin-left: 35%;
+}
+.errmess {
+  padding: 1rem;
+}
+.username,
+.newpass {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 3rem 20rem;
+  width: 50rem;
+}
+input {
+  width: 20rem;
+  border: #000 2px solid;
+  padding: 1rem;
+  border-radius: 5rem;
+}

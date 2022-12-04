@@ -1,7 +1,6 @@
-import { Token } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { AuthUserService } from 'src/app/Services/auth-user.service';
 import { User } from 'src/app/user';
 
@@ -16,15 +15,11 @@ export class ProfileComponent implements OnInit {
   dontmatch: Boolean;
   data: any;
   succmess: String;
-  constructor(
-    private auth: AuthUserService,
-    private fb: FormBuilder,
-    private route: Router
-  ) {}
+  constructor(private auth: AuthUserService, private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    if (this.auth.userLogged()) {
-      this.auth.getProfile().subscribe((user) => {
+    if (this.auth.adminLogged()) {
+      this.auth.getAdminProfile().subscribe((user) => {
         this.user = user;
         this.profile = this.fb.nonNullable.group({
           email: user.email,
@@ -48,17 +43,12 @@ export class ProfileComponent implements OnInit {
         this.user.joinedAt,
         this.user.isAdmin
       );
-      this.auth.editProfile(user).subscribe((data) => {
+      this.auth.editAdminProfile(user).subscribe((data) => {
         this.data = data;
         this.dontmatch = false;
         this.succmess = this.data.msg;
-        this.auth.saveLoggedUser(this.data.token);
+        this.auth.saveLoggedAdmin(this.data.token);
       });
     }
-  }
-  logout() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('username');
-    this.route.navigate(['/']);
   }
 }

@@ -26,7 +26,13 @@
         >
       </div>
       <div class="cart">
-        <a href=""><i class="bx bx-shopping-bag"></i>CART</a>
+        <a routerLink="/cart">
+          <i class="bx bx-shopping-bag"
+            ><sup class="badge badge-pill badge-warning" id="lblCartCount">
+              {{ itemsincart }}
+            </sup></i
+          >CART</a
+        >
       </div>
     </div>
   </div>

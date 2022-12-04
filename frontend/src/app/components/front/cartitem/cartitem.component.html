@@ -1,0 +1,32 @@
+<div class="card-body">
+  <div class="d-flex justify-content-between">
+    <div
+      class="d-flex flex-row align-items-center router"
+      [routerLink]="['/details', p.id]"
+    >
+      <div>
+        <img
+          [src]="p.media[0].img"
+          class="img rounded-3"
+          alt="Shopping item"
+          style="width: 10rem"
+        />
+      </div>
+      <div class="ms-3">
+        <h6>{{ p.name }}</h6>
+        <p class="small mb-0">{{ p.brandName }}</p>
+      </div>
+    </div>
+    <div class="d-flex flex-row align-items-center">
+      <div style="width: 50px">
+        <p class="small mb-0">{{ p.categorie }}</p>
+      </div>
+      <div style="width: 80px">
+        <h5 class="mb-0">{{ p.price.current.text }}</h5>
+      </div>
+      <a (click)="DeleteProd()" style="color: #cecece"
+        ><i class="delete fas fa-trash-alt"></i
+      ></a>
+    </div>
+  </div>
+</div>

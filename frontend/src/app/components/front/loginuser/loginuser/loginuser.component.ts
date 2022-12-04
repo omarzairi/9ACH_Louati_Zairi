@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthUserService } from 'src/app/Services/auth-user.service';
 @Component({
   selector: 'app-loginuser',
@@ -15,8 +15,13 @@ export class LoginuserComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private auth: AuthUserService,
-    private routr: Router
-  ) {}
+    private routr: Router,
+    private act: ActivatedRoute
+  ) {
+    if (this.auth.userLogged()) {
+      this.routr.navigate(['/']);
+    }
+  }
 
   ngOnInit(): void {
     this.userlogin = this.fb.nonNullable.group({
@@ -29,7 +34,7 @@ export class LoginuserComponent implements OnInit {
       (data) => {
         this.data = data;
         this.auth.saveLoggedUser(this.data.token);
-        this.routr.navigate(['/']);
+        this.routr.navigate([this.act.snapshot.queryParams['redrict'] || '/']);
       },
       (err: HttpErrorResponse) => (this.errormsg = err.error.msg)
     );

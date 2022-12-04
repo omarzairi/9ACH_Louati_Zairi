@@ -56,6 +56,19 @@
       <p>Brand : {{ product?.brandName }}</p>
       <p>Creation Date : {{ product?.dateCreation | date }}</p>
     </div>
+    <div class="curr">
+      <form [formGroup]="currency">
+        <select formControlName="choice" (change)="convertIt()">
+          <option [value]="count" *ngFor="let count of keys">
+            {{ currency_list[count] }}
+          </option>
+        </select>
+      </form>
+      <div class="converted" *ngIf="converted != undefined">
+        <span>Converted Price :</span>
+        <b>{{ converted | currency : currency.value["choice"] }}</b>
+      </div>
+    </div>
     <div class="card delivery" style="width: 100%">
       <div class="card-header">Delivery Info</div>
       <ul class="list-group list-group-flush">
@@ -69,7 +82,23 @@
         </li>
       </ul>
     </div>
-    <button class="addtocart">ADD TO CART</button>
+    <div
+      class="alert alert-danger errcart text-center"
+      *ngIf="carterr != undefined"
+    >
+      <i class="fa-solid fa-triangle-exclamation"></i>
+
+      {{ carterr | titlecase }}
+    </div>
+    <div
+      class="alert alert-success text-center errcart"
+      *ngIf="succcart == true"
+    >
+      <i class="fa-solid fa-check"></i>
+
+      Product Added To Your Cart !
+    </div>
+    <button class="addtocart" (click)="addToCart()">ADD TO CART</button>
   </div>
 </div>
 

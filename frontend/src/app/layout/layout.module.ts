@@ -7,6 +7,8 @@ import { HeaderComponent } from '../components/front/header/header.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { RouterModule } from '@angular/router';
 import { AuthAdminComponent } from './auth-admin/auth-admin.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AdminComponent,
@@ -15,6 +17,6 @@ import { AuthAdminComponent } from './auth-admin/auth-admin.component';
     FooterComponent,
     AuthAdminComponent,
   ],
-  imports: [CommonModule, AppRoutingModule, RouterModule],
+  imports: [CommonModule, AppRoutingModule, RouterModule, ReactiveFormsModule],
 })
 export class LayoutModule {}

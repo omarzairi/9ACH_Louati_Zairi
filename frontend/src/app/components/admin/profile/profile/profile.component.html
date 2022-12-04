@@ -1,0 +1,74 @@
+<div class="dontmatch text-center">
+  <div class="alert alert-danger text-center errmess" *ngIf="dontmatch == true">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+
+    Passwords Dont Match !
+  </div>
+  <div
+    class="alert alert-success text-center errmess"
+    *ngIf="succmess != undefined"
+  >
+    <i class="fa-solid fa-check"></i>
+
+    {{ succmess | titlecase }}
+  </div>
+</div>
+<div class="container">
+  <div class="card">
+    <div class="card__border">
+      <img
+        src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+        alt="card image"
+        class="card__img"
+      />
+    </div>
+
+    <h3 class="card__name">{{ user!.name }}</h3>
+    <span class="card__profession">Joined : {{ user!.joinedAt | date }}</span>
+
+    <div class="card__social" id="card-social">
+      <div class="card__social-control">
+        <span class="card__social-text" *ngIf="user!.isAdmin">Admin</span>
+      </div>
+    </div>
+  </div>
+
+  <form [formGroup]="profile">
+    <div class="informations">
+      <div class="username">
+        <div class="name">
+          <p>USERNAME</p>
+          <br />
+          <input type="text" formControlName="name" />
+        </div>
+        <div class="email">
+          <p>E-MAIL ADRESS</p>
+          <br />
+          <input type="text" formControlName="email" />
+        </div>
+      </div>
+      <div class="newpass">
+        <div class="pass">
+          <p>NEW PASSWORD</p>
+          <br />
+          <input type="password" formControlName="password" />
+        </div>
+        <div class="reppass">
+          <p>CONFIRM PASSWORD</p>
+          <br />
+          <input type="password" formControlName="cnfpass" />
+        </div>
+      </div>
+      <div class="buttons text-center">
+        <button
+          type="button"
+          class="btn btn-secondary btn-lg px-3"
+          (click)="udpadeProf()"
+        >
+          <i class="fa-solid fa-pen-to-square"></i>
+          Update Profile
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,52 @@
+<div class="container-fluid">
+  <h1 class="h3 mb-2 text-gray-800">Clients</h1>
+
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Users</h6>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table
+          class="table table-bordered"
+          id="dataTable"
+          width="100%"
+          cellspacing="0"
+        >
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Joined At</th>
+              <th>Is Admin</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Joined At</th>
+              <th>Is Admin</th>
+            </tr>
+          </tfoot>
+          <tbody>
+            <tr *ngFor="let user of clients">
+              <td>{{ user.name }}</td>
+              <td>{{ user.email }}</td>
+              <td>{{ user.joinedAt | date }}</td>
+              <td>
+                <i
+                  [ngClass]="{
+                    'fa-solid': true,
+                    ' fa-check': user.isAdmin,
+                    ' fa-x': !user.isAdmin
+                  }"
+                ></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

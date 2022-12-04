@@ -1,6 +1,14 @@
 <div class="videos">
   <div class="container1">
-    <video #vid1 muted preload="auto" autoplay loop class="vid1">
+    <video
+      #vid1
+      [muted]="'muted'"
+      [autoplay]="true"
+      preload="auto"
+      autoplay
+      loop
+      class="vid1"
+    >
       <source
         src="https://static.zara.net/video///mkt/2022/11/aw22-north-srpls/subhome-xmedia-man-dp2/w/1700/landscape-default/subhome-xmedia-man-dp2_0.mp4?ts=1667930073197"
         type="video/mp4"
@@ -10,7 +18,15 @@
     <button routerLink="/men" class="shopbutton">SHOP FOR MEN</button>
   </div>
   <div class="container2">
-    <video #vid2 preload="auto" autoplay muted loop class="vid2">
+    <video
+      #vid2
+      preload="auto"
+      autoplay
+      [muted]="'muted'"
+      [autoplay]="true"
+      loop
+      class="vid2"
+    >
       <source
         src="https://static.zara.net/video///mkt/2022/11/aw22-north-srpls/subhome-xmedia-woman-dp02/w/1315//landscape-default/subhome-xmedia-woman-dp02_0.mp4?ts=1667931241401"
         type="video/mp4"

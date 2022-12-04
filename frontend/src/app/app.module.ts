@@ -12,7 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ProductListModModule } from './components/front/product-list-mod/product-list-mod.module';
 import { ProductComponent } from './components/front/product/product.component';
 import { ProductListComponent } from './components/front/product-list-mod/product-list/product-list.component';
-import { MatGridListModule } from '@angular/material/grid-list';
+
 import { SharedModuleModule } from './shared-module/shared-module.module';
 import { FormsModule } from '@angular/forms';
 
@@ -30,7 +30,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     ReactiveFormsModule,
     CommonModule,
-    MatGridListModule,
+
     ProductListModModule,
     SharedModuleModule,
     FormsModule,

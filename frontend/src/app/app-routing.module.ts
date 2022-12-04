@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductListComponent } from './components/front/product-list-mod/product-list/product-list.component';
+import { AdminguardGuard } from './guards/adminguard.guard';
+import { ProfileguardGuard } from './guards/profileguard.guard';
 
 import { AdminComponent } from './layout/admin/admin.component';
 import { AuthAdminComponent } from './layout/auth-admin/auth-admin.component';
@@ -60,9 +62,18 @@ const routes: Routes = [
       },
       {
         path: 'profile',
+        canActivate: [ProfileguardGuard],
         loadChildren: () =>
           import('./components/front/profile/profile.module').then(
             (module) => module.ProfileModule
+          ),
+      },
+      {
+        path: 'cart',
+        canActivate: [ProfileguardGuard],
+        loadChildren: () =>
+          import('./components/front/cart/cart.module').then(
+            (module) => module.CartModule
           ),
       },
     ],
@@ -70,6 +81,7 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminComponent,
+    canActivate: [AdminguardGuard],
     children: [
       {
         path: '',
@@ -92,6 +104,13 @@ const routes: Routes = [
             (module) => module.AllproductsModule
           ),
       },
+      {
+        path: 'allclients',
+        loadChildren: () =>
+          import('./components/admin/clients/clients.module').then(
+            (module) => module.ClientsModule
+          ),
+      },
 
       {
         path: 'search/:search',
@@ -105,6 +124,13 @@ const routes: Routes = [
         loadChildren: () =>
           import('./components/admin/addproduct/addproduct.module').then(
             (module) => module.AddproductModule
+          ),
+      },
+      {
+        path: 'profile',
+        loadChildren: () =>
+          import('./components/admin/profile/profile.module').then(
+            (module) => module.ProfileModule
           ),
       },
       {

@@ -96,3 +96,21 @@ a {
   background-color: rgb(113, 113, 113);
   color: white;
 }
+.badge {
+  padding-left: 9px;
+  padding-right: 9px;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 9px;
+}
+
+#lblCartCount {
+  font-family: "Didact Gothic", sans-serif !important;
+  text-align: center;
+  font-size: 90%;
+  background: #ff0000;
+  color: #fff;
+  padding: 1px 5px;
+  vertical-align: top;
+  margin-left: -5px;
+}
