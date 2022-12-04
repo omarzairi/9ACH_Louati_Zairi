@@ -3,9 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProductListComponent } from './components/front/product-list-mod/product-list/product-list.component';
 import { AdminguardGuard } from './guards/adminguard.guard';
 import { ProfileguardGuard } from './guards/profileguard.guard';
+import { AboutusComponent } from './layout/aboutus/aboutus.component';
 
 import { AdminComponent } from './layout/admin/admin.component';
 import { AuthAdminComponent } from './layout/auth-admin/auth-admin.component';
+import { ErrorpageComponent } from './layout/errorpage/errorpage.component';
 import { FrontComponent } from './layout/front/front.component';
 
 const routes: Routes = [
@@ -76,6 +78,7 @@ const routes: Routes = [
             (module) => module.CartModule
           ),
       },
+      { path: 'about', component: AboutusComponent },
     ],
   },
   {
@@ -143,6 +146,8 @@ const routes: Routes = [
     ],
   },
   { path: 'admin/login', component: AuthAdminComponent },
+
+  { path: '**', component: ErrorpageComponent },
 ];
 
 @NgModule({

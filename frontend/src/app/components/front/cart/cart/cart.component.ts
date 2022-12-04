@@ -12,7 +12,7 @@ export class CartComponent implements OnInit {
   cart: Cart;
   prods: Product[] = [];
   subprice: any = 0;
-  shipping: Number = 20.0;
+  shipping: Number = 0.0;
   total: Number;
   username: String =
     localStorage.getItem('username') || localStorage.getItem('adminusername');

@@ -4,7 +4,7 @@
       <button routerLink="/register">REGISTER</button>
       <button routerLink="/login">LOGIN</button>
     </div>
-    <form [formGroup]="userlogin" (ngSubmit)="login()">
+    <form [formGroup]="userlogin" (ngSubmit)="login()" novalidate>
       <div class="body">
         <div class="elems">
           <div
@@ -16,14 +16,40 @@
             {{ errormsg | titlecase }}
           </div>
           <p>Email Address:</p>
-          <input type="email" placeholder="Email" formControlName="email" />
+          <input
+            type="email"
+            placeholder="Email"
+            formControlName="email"
+            email
+          />
+          <div
+            *ngIf="email && email.invalid && email.touched"
+            class="alert alert-danger text-center emailreq"
+          >
+            <i class="fa-solid fa-triangle-exclamation"></i> Email is required &
+            Shoud be an Email
+          </div>
+
           <p>Password:</p>
           <input
             type="password"
             placeholder="Password"
             formControlName="password"
           />
-          <button class="loginbutton" type="submit">LOG IN</button>
+          <div
+            *ngIf="pass && pass.invalid && pass.touched"
+            class="alert alert-danger text-center emailreq"
+          >
+            <i class="fa-solid fa-triangle-exclamation"></i> Password is
+            required
+          </div>
+          <button
+            class="loginbutton"
+            type="submit"
+            [disabled]="userlogin.invalid"
+          >
+            LOG IN
+          </button>
         </div>
       </div>
     </form>

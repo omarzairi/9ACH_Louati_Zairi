@@ -16,6 +16,8 @@ const URL = 'http://localhost:5000/api/products/';
 })
 export class ProductService {
   deletedId: Number;
+  women: Boolean;
+  men: Boolean;
   constructor(private http: HttpClient) {}
 
   getAllProducts(): Observable<Product[]> {

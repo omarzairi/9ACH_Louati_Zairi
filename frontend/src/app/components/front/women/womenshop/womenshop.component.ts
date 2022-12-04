@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
+import { ProductService } from 'src/app/Services/product.service';
 @Component({
   selector: 'app-womenshop',
   templateUrl: './womenshop.component.html',
   styleUrls: ['./womenshop.component.css'],
 })
 export class WomenshopComponent implements OnInit {
+  women: Boolean;
   categs = {
     sale: false,
     new: false,
@@ -18,8 +20,14 @@ export class WomenshopComponent implements OnInit {
     accessoires: false,
     fb: false,
   };
-  constructor(private ActiveRoute: ActivatedRoute) {}
+  constructor(
+    private ActiveRoute: ActivatedRoute,
+    private prod: ProductService
+  ) {}
+
   sale() {
+    this.prod.women = true;
+    this.women = this.prod.women;
     this.categs = {
       sale: true,
       new: false,
@@ -33,6 +41,8 @@ export class WomenshopComponent implements OnInit {
     };
   }
   newin() {
+    this.prod.women = true;
+    this.women = this.prod.women;
     this.categs = {
       sale: false,
       new: true,
@@ -46,6 +56,8 @@ export class WomenshopComponent implements OnInit {
     };
   }
   cj() {
+    this.prod.women = true;
+    this.women = this.prod.women;
     this.categs = {
       sale: false,
       new: false,
@@ -59,6 +71,8 @@ export class WomenshopComponent implements OnInit {
     };
   }
   dresses() {
+    this.prod.women = true;
+    this.women = this.prod.women;
     this.categs = {
       sale: false,
       new: false,
@@ -72,6 +86,8 @@ export class WomenshopComponent implements OnInit {
     };
   }
   jeans() {
+    this.prod.women = true;
+    this.women = this.prod.women;
     this.categs = {
       sale: false,
       new: false,
@@ -85,6 +101,8 @@ export class WomenshopComponent implements OnInit {
     };
   }
   sportswear() {
+    this.prod.women = true;
+    this.women = this.prod.women;
     this.categs = {
       sale: false,
       new: false,
@@ -98,6 +116,8 @@ export class WomenshopComponent implements OnInit {
     };
   }
   accessoires() {
+    this.prod.women = true;
+    this.women = this.prod.women;
     this.categs = {
       sale: false,
       new: false,
@@ -111,6 +131,8 @@ export class WomenshopComponent implements OnInit {
     };
   }
   fb() {
+    this.prod.women = true;
+    this.women = this.prod.women;
     this.categs = {
       sale: false,
       new: false,
@@ -124,6 +146,8 @@ export class WomenshopComponent implements OnInit {
     };
   }
   shoes() {
+    this.prod.women = true;
+    this.women = this.prod.women;
     this.categs = {
       sale: false,
       new: false,
@@ -136,5 +160,10 @@ export class WomenshopComponent implements OnInit {
       fb: false,
     };
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.ngOnInit();
+    }, 1000);
+    this.women = this.prod.women;
+  }
 }

@@ -8,6 +8,8 @@ import { AppRoutingModule } from '../app-routing.module';
 import { RouterModule } from '@angular/router';
 import { AuthAdminComponent } from './auth-admin/auth-admin.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ErrorpageComponent } from './errorpage/errorpage.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     FooterComponent,
     AuthAdminComponent,
+    ErrorpageComponent,
+    AboutusComponent,
   ],
   imports: [CommonModule, AppRoutingModule, RouterModule, ReactiveFormsModule],
 })

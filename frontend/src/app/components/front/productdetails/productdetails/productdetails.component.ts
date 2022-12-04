@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/product';
 import { ProductService } from 'src/app/Services/product.service';
 import { Review } from 'src/app/review';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AuthUserService } from 'src/app/Services/auth-user.service';
 import { User } from 'src/app/user';
@@ -77,6 +77,9 @@ export class ProductdetailsComponent implements OnInit {
         this.converted = money * data;
       });
   }
+  get comment() {
+    return this.review.get('comment');
+  }
   constructor(
     private ActiveRoute: ActivatedRoute,
     private prodserv: ProductService,
@@ -105,7 +108,7 @@ export class ProductdetailsComponent implements OnInit {
     });
     this.review = this.fb.nonNullable.group({
       rate: '5',
-      comment: [''],
+      comment: ['', Validators.required],
     });
     this.currency_list = {
       AFA: 'Afghan Afghani',

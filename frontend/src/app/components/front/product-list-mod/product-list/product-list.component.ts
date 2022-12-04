@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/product';
 import { ProductService } from 'src/app/Services/product.service';
 import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -9,10 +10,14 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductListComponent implements OnInit {
   allProducts!: Product[];
+  filtered!: Product[];
   categId: Number;
+  Brands: String[] = [];
+  getbybrand: FormGroup;
   constructor(
     private ProductServ: ProductService,
-    private ActiveRoute: ActivatedRoute
+    private ActiveRoute: ActivatedRoute,
+    private fb: FormBuilder
   ) {}
 
   ngOnInit(): void {
@@ -20,6 +25,7 @@ export class ProductListComponent implements OnInit {
       if (Object.keys(params)[0] == 'search') {
         this.ProductServ.searchProductsByName(params['search']).subscribe(
           (data) => {
+            this.filtered = null;
             this.allProducts = data;
             let name = params['search'];
             let spli = name.split(' ');
@@ -52,16 +58,39 @@ export class ProductListComponent implements OnInit {
               });
               this.allProducts = prods;
             }
+            this.filtered = null;
+            this.Brands = [];
+            this.allProducts.map((prod) => {
+              if (this.Brands.indexOf(prod.brandName) == -1) {
+                this.Brands.unshift(prod.brandName);
+              }
+            });
           }
         );
       } else {
         this.categId = params['categid'];
         this.ProductServ.getProductsByCategId(this.categId).subscribe(
           (data) => {
+            this.filtered = null;
             this.allProducts = data;
+            this.Brands = [];
+            data.map((prod) => {
+              if (this.Brands.indexOf(prod.brandName) == -1) {
+                this.Brands.push(prod.brandName);
+              }
+            });
           }
         );
       }
     });
+
+    this.getbybrand = this.fb.nonNullable.group({
+      brand: [this.Brands[0]],
+    });
+  }
+  getByBrand() {
+    this.filtered = this.allProducts.filter(
+      (prod) => prod.brandName == this.getbybrand.value['brand']
+    );
   }
 }

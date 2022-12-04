@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthUserService } from 'src/app/Services/auth-user.service';
 @Component({
@@ -25,9 +25,15 @@ export class LoginuserComponent implements OnInit {
 
   ngOnInit(): void {
     this.userlogin = this.fb.nonNullable.group({
-      email: [],
-      password: [''],
+      email: ['', Validators.required],
+      password: ['', Validators.required],
     });
+  }
+  get email() {
+    return this.userlogin.get('email');
+  }
+  get pass() {
+    return this.userlogin.get('password');
   }
   login() {
     this.auth.login(this.userlogin.value).subscribe(

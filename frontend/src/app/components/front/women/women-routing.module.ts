@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { WomenshomeComponent } from '../womenshome/womenshome/womenshome.component';
 
 import { WomenshopComponent } from './womenshop/womenshop.component';
 
@@ -13,6 +14,13 @@ const routes: Routes = [
         loadChildren: () =>
           import('../product-list-mod/product-list-mod.module').then(
             (module) => module.ProductListModModule
+          ),
+      },
+      {
+        path: '',
+        loadChildren: () =>
+          import('../womenshome/womenshome.module').then(
+            (module) => module.WomenshomeModule
           ),
       },
     ],

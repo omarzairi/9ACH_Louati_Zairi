@@ -1,0 +1,59 @@
+.shopbutton {
+  height: 5.59rem;
+  left: 38%;
+  margin: -64px 0 0 -64px;
+  position: absolute;
+  top: 54%;
+  width: 30rem;
+  z-index: 1;
+
+  font-size: 2rem;
+
+  background-color: white;
+  color: black;
+  border: none;
+  letter-spacing: 0.3rem;
+  transition: background-color 0.5s;
+}
+.shopbutton:hover {
+  background-color: black;
+  color: white;
+}
+.minishopbutton {
+  height: 5.59rem;
+  left: 30%;
+  margin: -64px 0 0 -64px;
+  position: absolute;
+  top: 60%;
+  width: 20rem;
+  z-index: 1;
+
+  font-size: 1rem;
+
+  background-color: white;
+  color: black;
+  border: none;
+  letter-spacing: 0.3rem;
+  transition: background-color 0.5s;
+}
+.minishopbutton:hover {
+  background-color: black;
+  color: white;
+}
+.menelems {
+  margin-top: 2rem;
+}
+.menelems,
+.fur {
+  position: relative;
+}
+.fur img {
+  width: 30rem;
+}
+.fur {
+  margin-top: 5%;
+}
+.cont {
+  display: flex;
+  justify-content: space-evenly;
+}

@@ -68,7 +68,7 @@
   </div>
 </nav>
 <div class="categ">
-  <div class="super new" *ngIf="categs.new">
+  <div class="super new" *ngIf="women && categs.new">
     <div
       class="supercateg"
       routerLinkActive="superactive"
@@ -98,7 +98,7 @@
       NEW IN: FACE + BODY
     </div>
   </div>
-  <div class="super shoes" *ngIf="categs.shoes">
+  <div class="super shoes" *ngIf="women && categs.shoes">
     <div
       class="supercateg"
       routerLinkActive="superactive"
@@ -128,7 +128,7 @@
       HEELS
     </div>
   </div>
-  <div class="super coats-jackets" *ngIf="categs.cj">
+  <div class="super coats-jackets" *ngIf="women && categs.cj">
     <div
       class="supercateg"
       routerLinkActive="superactive"
@@ -151,7 +151,7 @@
       FAUX FUR COATS
     </div>
   </div>
-  <div class="super face-body" *ngIf="categs.fb">
+  <div class="super face-body" *ngIf="women && categs.fb">
     <div
       class="supercateg"
       routerLinkActive="superactive"
@@ -189,4 +189,5 @@
     </div>
   </div>
 </div>
+
 <router-outlet></router-outlet>

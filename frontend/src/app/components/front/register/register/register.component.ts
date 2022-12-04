@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthUserService } from 'src/app/Services/auth-user.service';
 
@@ -21,10 +21,19 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.userRegister = this.fb.nonNullable.group({
-      name: [''],
-      email: [''],
-      password: [''],
+      name: ['', Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required],
     });
+  }
+  get email() {
+    return this.userRegister.get('email');
+  }
+  get pass() {
+    return this.userRegister.get('password');
+  }
+  get name() {
+    return this.userRegister.get('name');
   }
   register() {
     this.auth.register(this.userRegister.value).subscribe(

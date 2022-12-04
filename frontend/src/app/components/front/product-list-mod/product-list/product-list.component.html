@@ -1,4 +1,25 @@
 <div class="container">
+  <form [formGroup]="getbybrand">
+    <label for="brand" class="form-label">Filter By Brand :</label>
+
+    <select
+      name="brands"
+      id="brand"
+      class="form-select text-center"
+      aria-label="Default select example"
+      formControlName="brand"
+      (change)="getByBrand()"
+    >
+      <option [value]="brand" *ngFor="let brand of Brands">{{ brand }}</option>
+    </select>
+  </form>
+</div>
+<div class="container" *ngIf="filtered != null">
+  <div class="product" *ngFor="let p of filtered">
+    <app-product [product]="p"></app-product>
+  </div>
+</div>
+<div class="container" *ngIf="filtered == null">
   <div class="product" *ngFor="let p of allProducts">
     <app-product [product]="p"></app-product>
   </div>
